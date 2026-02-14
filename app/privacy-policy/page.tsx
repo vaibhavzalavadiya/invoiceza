@@ -112,16 +112,16 @@ export default function PrivacyPolicy() {
                 We recommend:
               </p>
               <ul className="space-y-2 text-gray-700">
-                <li className="flex items-start gap-2 p-2 rounded hover:bg-blue-50 transition-colors">
-                  <span className="text-blue-600 font-bold mt-1">•</span>
+                <li className="flex gap-2 p-2 rounded hover:bg-blue-50 transition-colors">
+                  <span className="text-blue-600 font-bold">•</span>
                   <span>Regularly backing up important invoices by downloading them</span>
                 </li>
-                <li className="flex items-start gap-2 p-2 rounded hover:bg-blue-50 transition-colors">
-                  <span className="text-blue-600 font-bold mt-1">•</span>
+                <li className="flex gap-2 p-2 rounded hover:bg-blue-50 transition-colors">
+                  <span className="text-blue-600 font-bold">•</span>
                   <span>Using secure passwords if you save business profiles</span>
                 </li>
-                <li className="flex items-start gap-2 p-2 rounded hover:bg-blue-50 transition-colors">
-                  <span className="text-blue-600 font-bold mt-1">•</span>
+                <li className="flex gap-2 p-2 rounded hover:bg-blue-50 transition-colors">
+                  <span className="text-blue-600 font-bold">•</span>
                   <span>Clearing browser data if using a shared computer</span>
                 </li>
               </ul>
@@ -139,20 +139,20 @@ export default function PrivacyPolicy() {
               <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-gray-900 mb-4">Your Rights</h2>
               <p className="text-gray-700 leading-relaxed mb-4">You have the right to:</p>
               <ul className="space-y-2 text-gray-700">
-                <li className="flex items-start gap-2 p-2 rounded hover:bg-purple-50 transition-colors">
-                  <span className="text-purple-600 font-bold mt-1">→</span>
+                <li className="flex items-center gap-2 p-2 rounded hover:bg-purple-50 transition-colors">
+                  <span className="text-purple-600 font-bold">→</span>
                   <span>Access your locally stored data at any time</span>
                 </li>
-                <li className="flex items-start gap-2 p-2 rounded hover:bg-purple-50 transition-colors">
-                  <span className="text-purple-600 font-bold mt-1">→</span>
+                <li className="flex items-center gap-2 p-2 rounded hover:bg-purple-50 transition-colors">
+                  <span className="text-purple-600 font-bold">→</span>
                   <span>Delete all stored data by clearing your browser storage</span>
                 </li>
-                <li className="flex items-start gap-2 p-2 rounded hover:bg-purple-50 transition-colors">
-                  <span className="text-purple-600 font-bold mt-1">→</span>
+                <li className="flex items-center gap-2 p-2 rounded hover:bg-purple-50 transition-colors">
+                  <span className="text-purple-600 font-bold">→</span>
                   <span>Export your data in JSON or PDF format</span>
                 </li>
-                <li className="flex items-start gap-2 p-2 rounded hover:bg-purple-50 transition-colors">
-                  <span className="text-purple-600 font-bold mt-1">→</span>
+                <li className="flex items-center gap-2 p-2 rounded hover:bg-purple-50 transition-colors">
+                  <span className="text-purple-600 font-bold">→</span>
                   <span>Opt-out of analytics tracking</span>
                 </li>
               </ul>

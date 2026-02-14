@@ -7,7 +7,7 @@ export function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-300 lg:py-16 py-10">
       <div className="container">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 lg:gap-8 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 lg:gap-8 gap-5">
           {/* Brand */}
           <div className="col-span-1">
             <div className="flex items-center gap-2 mb-4">
@@ -17,11 +17,11 @@ export function Footer() {
                   alt="Invoiceza Logo"
                   width={155}
                   height={30}
-                  className="md:max-w-[155px] max-w-[150px] object-contain"
+                  className="md:max-w-[155px] max-w-[130px] object-contain"
                 />
               </Link>
             </div>
-            <p className="text-sm text-gray-400 mb-4">
+            <p className="text-sm text-gray-400">
               Create professional invoices instantly. Free, no signup required.
             </p>
           </div>

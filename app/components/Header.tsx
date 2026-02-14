@@ -48,25 +48,25 @@ export function Header() {
                 alt="Invoiceza Logo"
                 width={155}
                 height={30}
-                className="md:max-w-38.75 max-w-37.5 object-contain"
+                className="md:max-w-38.75 max-w-[130px] object-contain"
               />
             </Link>
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center lg:gap-6 gap-4 lg:text-base text-sm">
-              <Link href="/" className="text-gray-700 hover:text-teal-600 font-medium transition-colors">
+              <Link href="/" className="text-black hover:text-teal-600 font-medium transition-colors">
                 Home
               </Link>
-              <Link href="/features" className="text-gray-700 hover:text-teal-600 font-medium transition-colors">
+              <Link href="/features" className="text-black hover:text-teal-600 font-medium transition-colors">
                 Features
               </Link>
-              <Link href="/how-it-works" className="text-gray-700 hover:text-teal-600 font-medium transition-colors">
+              <Link href="/how-it-works" className="text-black hover:text-teal-600 font-medium transition-colors">
                 How It Works
               </Link>
-              <Link href="/faq" className="text-gray-700 hover:text-teal-600 font-medium transition-colors">
+              <Link href="/faq" className="text-black hover:text-teal-600 font-medium transition-colors">
                 FAQ
               </Link>
-              <Link href="/contact" className="text-gray-700 hover:text-teal-600 font-medium transition-colors">
+              <Link href="/contact" className="text-black hover:text-teal-600 font-medium transition-colors">
                 Contact
               </Link>
               <Link
@@ -78,19 +78,28 @@ export function Header() {
             </nav>
 
             {/* Mobile Menu Button */}
-            <button
-              onClick={() => {
-                if (mobileMenuOpen) {
-                  handleClose();
-                } else {
-                  handleOpen();
-                }
-              }}
-              className="md:hidden text-gray-700 hover:text-teal-600 transition-colors"
-              aria-label="Toggle menu"
-            >
-              {mobileMenuOpen ? <FiX className="w-6 h-6" /> : <FiMenu className="w-6 h-6" />}
-            </button>
+            <div className='md:hidden flex items-center gap-3'>
+              <Link
+                href="/"
+                className="bg-teal-600 text-white text-sm px-3 py-2 rounded-lg hover:bg-teal-700 transition-all duration-200 hover:shadow-lg font-medium text-center"
+                onClick={handleClose}
+              >
+                Create Invoice
+              </Link>
+              <button
+                onClick={() => {
+                  if (mobileMenuOpen) {
+                    handleClose();
+                  } else {
+                    handleOpen();
+                  }
+                }}
+                className="text-black hover:text-teal-600 transition-colors"
+                aria-label="Toggle menu"
+              >
+                {mobileMenuOpen ? <FiX className="w-6 h-6" /> : <FiMenu className="w-6 h-6" />}
+              </button>
+            </div>
           </div>
         </div>
       </header>
@@ -122,7 +131,7 @@ export function Header() {
                 </div>
                 <button
                   onClick={handleClose}
-                  className="text-gray-700"
+                  className="text-black"
                   aria-label="Close menu"
                 >
                   <FiX className="w-6 h-6" />
@@ -133,46 +142,40 @@ export function Header() {
               <div className="flex flex-col gap-3 p-4 overflow-y-auto">
                 <Link
                   href="/"
-                  className="text-gray-700 hover:text-teal-600 font-medium"
+                  className="text-black hover:text-teal-600 font-medium"
                   onClick={handleClose}
                 >
                   Home
                 </Link>
                 <Link
                   href="/features"
-                  className="text-gray-700 hover:text-teal-600 font-medium"
+                  className="text-black hover:text-teal-600 font-medium"
                   onClick={handleClose}
                 >
                   Features
                 </Link>
                 <Link
                   href="/how-it-works"
-                  className="text-gray-700 hover:text-teal-600 font-medium"
+                  className="text-black hover:text-teal-600 font-medium"
                   onClick={handleClose}
                 >
                   How It Works
                 </Link>
                 <Link
                   href="/faq"
-                  className="text-gray-700 hover:text-teal-600 font-medium"
+                  className="text-black hover:text-teal-600 font-medium"
                   onClick={handleClose}
                 >
                   FAQ
                 </Link>
                 <Link
                   href="/contact"
-                  className="text-gray-700 hover:text-teal-600 font-medium"
+                  className="text-black hover:text-teal-600 font-medium"
                   onClick={handleClose}
                 >
                   Contact
                 </Link>
-                <Link
-                  href="/"
-                  className="bg-teal-600 text-white px-4 py-3 rounded-lg hover:bg-teal-700 transition-all duration-200 hover:shadow-lg font-medium text-center mt-4"
-                  onClick={handleClose}
-                >
-                  Create Invoice
-                </Link>
+
               </div>
             </div>
           </nav>

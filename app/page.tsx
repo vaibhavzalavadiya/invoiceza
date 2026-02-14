@@ -655,7 +655,7 @@ export default function Home() {
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
           <div className="bg-white rounded-lg p-8 shadow-xl flex flex-col items-center space-y-4 animate-fade-in">
             <div className="animate-spin rounded-full h-12 w-12 border-b-4 border-teal-600"></div>
-            <p className="text-gray-700 font-medium">Generating PDF...</p>
+            <p className="text-black font-medium">Generating PDF...</p>
           </div>
         </div>
       )}
@@ -719,7 +719,7 @@ export default function Home() {
                   URL.revokeObjectURL(previewUrl);
                   setPreviewUrl('');
                 }}
-                className="text-gray-500 hover:text-gray-700 transition-colors p-1"
+                className="text-gray-500 hover:text-black transition-colors p-1"
               >
                 <FiX className="w-5 h-5 sm:w-6 sm:h-6" />
               </button>
@@ -743,7 +743,7 @@ export default function Home() {
                   URL.revokeObjectURL(previewUrl);
                   setPreviewUrl('');
                 }}
-                className="px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors font-medium order-2 sm:order-1"
+                className="px-4 py-2 text-black hover:bg-gray-100 rounded-lg transition-colors font-medium order-2 sm:order-1"
               >
                 Close
               </button>
@@ -766,7 +766,7 @@ export default function Home() {
       )}
 
       {/* Invoice Editor Toolbar */}
-      <div className="bg-white border-b border-gray-200 py-3 sticky xl:top-[65px] lg:top-[64.5px] md:top-[61px] top-[52px] z-29 shadow-sm overflow-visible">
+      <div className="bg-white border-b border-gray-200 py-3 sticky xxl:top-[65px] xl:top-[64.6px] lg:top-[64.5px] top-[60.5px] z-29 shadow-sm overflow-visible">
         <div className="container flex items-center justify-between gap-2 overflow-visible">
           <div className="flex items-center gap-2 md:gap-3">
             {/* Currency Selector */}
@@ -833,7 +833,7 @@ export default function Home() {
                 setLastSaved(new Date());
                 showNotification('✓ Draft saved!');
               }}
-              className="text-gray-600 hover:text-gray-900 text-xs md:text-sm font-medium flex items-center gap-1 md:px-3 md:py-1.5 rounded md:hover:bg-gray-50"
+              className="text-black hover:text-gray-900 text-xs md:text-sm font-medium flex items-center gap-1 md:px-3 md:py-1.5 rounded md:hover:bg-gray-50"
             >
               <FiSave className="w-4 h-4" />
               <span className="hidden md:inline">Save Draft</span>
@@ -849,21 +849,21 @@ export default function Home() {
                   showNotification('No draft found', 'error');
                 }
               }}
-              className="text-gray-600 hover:text-gray-900 text-xs md:text-sm font-medium flex items-center gap-1 md:px-3 md:py-1.5 rounded md:hover:bg-gray-50"
+              className="text-black hover:text-gray-900 text-xs md:text-sm font-medium flex items-center gap-1 md:px-3 md:py-1.5 rounded md:hover:bg-gray-50"
             >
               <FiFolder className="w-4 h-4" />
               <span className="hidden md:inline">Load Draft</span>
             </button>
             <button
               onClick={handleNewInvoice}
-              className="text-gray-600 hover:text-gray-900 text-xs md:text-sm font-medium flex items-center gap-1 md:px-3 md:py-1.5 rounded md:hover:bg-gray-50"
+              className="text-black hover:text-gray-900 text-xs md:text-sm font-medium flex items-center gap-1 md:px-3 md:py-1.5 rounded md:hover:bg-gray-50"
             >
               <FiPlus className="w-4 h-4" />
               <span className="hidden md:inline">New Invoice</span>
             </button>
             <button
               onClick={() => setShowHistory(true)}
-              className="text-gray-600 hover:text-gray-900 text-xs md:text-sm font-medium flex items-center gap-1 md:px-3 md:py-1.5 rounded md:hover:bg-gray-50"
+              className="text-black hover:text-gray-900 text-xs md:text-sm font-medium flex items-center gap-1 md:px-3 md:py-1.5 rounded md:hover:bg-gray-50"
             >
               <FiClock className="w-4 h-4" />
               <span className="hidden md:inline">History</span>
@@ -871,7 +871,7 @@ export default function Home() {
             <div className="relative more-menu-container">
               <button
                 onClick={() => setShowMoreMenu(!showMoreMenu)}
-                className="text-gray-600 hover:text-gray-900 text-xs md:text-sm font-medium flex items-center gap-1 md:px-3 md:py-1.5 rounded md:hover:bg-gray-50"
+                className="text-black hover:text-gray-900 text-xs md:text-sm font-medium flex items-center gap-1 md:px-3 md:py-1.5 rounded md:hover:bg-gray-50"
               >
                 <FiMoreVertical className="w-4 h-4" />
                 <span className="hidden md:inline">More</span>
@@ -883,7 +883,7 @@ export default function Home() {
                       handleDuplicateInvoice();
                       setShowMoreMenu(false);
                     }}
-                    className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 flex items-center gap-2 rounded-t-lg"
+                    className="block w-full text-left px-4 py-2 text-sm text-black hover:bg-gray-50 flex items-center gap-2 rounded-t-lg"
                   >
                     <FiCopy className="w-4 h-4" />
                     Duplicate Invoice
@@ -893,12 +893,12 @@ export default function Home() {
                       handleExportJSON();
                       setShowMoreMenu(false);
                     }}
-                    className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 flex items-center gap-2"
+                    className="block w-full text-left px-4 py-2 text-sm text-black hover:bg-gray-50 flex items-center gap-2"
                   >
                     <FiDownload className="w-4 h-4" />
                     Export as JSON
                   </button>
-                  <label className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 cursor-pointer flex items-center gap-2">
+                  <label className="block w-full text-left px-4 py-2 text-sm text-black hover:bg-gray-50 cursor-pointer flex items-center gap-2">
                     <FiUpload className="w-4 h-4" />
                     Import from JSON
                     <input
@@ -916,7 +916,7 @@ export default function Home() {
                       handleLoadSampleData();
                       setShowMoreMenu(false);
                     }}
-                    className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 flex items-center gap-2"
+                    className="block w-full text-left px-4 py-2 text-sm text-black hover:bg-gray-50 flex items-center gap-2"
                   >
                     <FiFile className="w-4 h-4" />
                     Load Sample Data
@@ -973,7 +973,7 @@ export default function Home() {
 
                   {/* Invoice Progress */}
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-medium text-gray-700">Progress</span>
+                    <span className="text-xs font-medium text-black">Progress</span>
                     <span className="text-sm font-bold text-teal-600">{completionPercentage}%</span>
                   </div>
                   <div className="w-full bg-white/50 rounded-full h-2 mb-2">
@@ -982,7 +982,7 @@ export default function Home() {
                       style={{ width: `${completionPercentage}%` }}
                     ></div>
                   </div>
-                  <div className="grid grid-cols-2 gap-x-3 gap-y-1 text-xs text-gray-600">
+                  <div className="grid grid-cols-2 gap-x-3 gap-y-1 text-xs text-black">
                     <div className="flex items-center gap-1.5">
                       {invoiceData.business.name ? <FiCheckCircle className="w-3 h-3 text-green-500" /> : <div className="w-3 h-3 rounded-full border-2 border-gray-300"></div>}
                       <span>Business</span>
@@ -1032,7 +1032,7 @@ export default function Home() {
                     </label>
 
                     {/* Business Info - Editable */}
-                    <div className="text-sm text-gray-600 space-y-3">
+                    <div className="text-sm text-black space-y-3">
                       <input
                         type="text"
                         placeholder="Your Business Name"
@@ -1065,11 +1065,11 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-                  <div className="text-left md:text-right">
-                    <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3 md:mb-4">INVOICE</h2>
+                  <div className="text-left md:text-right text-black">
+                    <h2 className="text-2xl md:text-3xl font-bold text-black mb-3 md:mb-4">INVOICE</h2>
                     <div className="space-y-3 text-sm">
                       <div className="flex md:justify-end gap-2 items-center">
-                        <span className="text-gray-600">#</span>
+                        <span className="text-black">#</span>
                         <input
                           type="text"
                           className="w-32 md:text-right border-b border-gray-300 focus:outline-none focus:border-teal-500 px-2 py-1"
@@ -1078,7 +1078,7 @@ export default function Home() {
                         />
                       </div>
                       <div className="flex md:justify-end items-center gap-2">
-                        <span className="text-gray-600 text-xs">Status:</span>
+                        <span className="text-black text-xs">Status:</span>
                         <Select
                           instanceId="invoice-status-select"
                           styles={selectStyles}
@@ -1115,7 +1115,7 @@ export default function Home() {
                     <textarea
                       placeholder="Who is this for?"
                       rows={3}
-                      className={`w-full text-sm text-gray-700 border rounded-md focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none px-3 py-2 resize-none transition-all ${!invoiceData.client.billTo && completionPercentage < 100 ? 'border-orange-300 bg-orange-50/30' : 'border-gray-300'
+                      className={`w-full text-sm text-black border rounded-md focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none px-3 py-2 resize-none transition-all ${!invoiceData.client.billTo && completionPercentage < 100 ? 'border-orange-300 bg-orange-50/30' : 'border-gray-300'
                         }`}
                       value={invoiceData.client.billTo}
                       onChange={(e) => handleClientChange('billTo', e.target.value)}
@@ -1132,7 +1132,7 @@ export default function Home() {
                     <textarea
                       placeholder="Shipping address if different"
                       rows={3}
-                      className="w-full text-sm text-gray-700 border border-gray-300 rounded-md focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none px-3 py-2 resize-none transition-all"
+                      className="w-full text-sm text-black border border-gray-300 rounded-md focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none px-3 py-2 resize-none transition-all"
                       value={invoiceData.client.shipTo}
                       onChange={(e) => handleClientChange('shipTo', e.target.value)}
                     />
@@ -1142,7 +1142,7 @@ export default function Home() {
                 {/* Invoice Details */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 mb-5 md:mb-8 text-sm">
                   <div className="flex justify-between items-center">
-                    <span className="text-gray-600">Date</span>
+                    <span className="text-black">Date</span>
                     <input
                       type="date"
                       className="text-right border-b border-gray-300 focus:outline-none focus:border-teal-500 px-2 py-1"
@@ -1151,7 +1151,7 @@ export default function Home() {
                     />
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-gray-600">Payment Terms</span>
+                    <span className="text-black">Payment Terms</span>
                     <Select
                       instanceId="payment-terms-select"
                       styles={selectStyles}
@@ -1172,7 +1172,7 @@ export default function Home() {
                     />
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-gray-600">Due Date</span>
+                    <span className="text-black">Due Date</span>
                     <input
                       type="date"
                       className="text-right border-b border-gray-300 focus:outline-none focus:border-teal-500 px-2 py-1"
@@ -1181,7 +1181,7 @@ export default function Home() {
                     />
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-gray-600">PO Number</span>
+                    <span className="text-black">PO Number</span>
                     <input
                       type="text"
                       className="w-32 text-right border-b border-gray-300 focus:outline-none focus:border-teal-500 px-2 py-1"
@@ -1301,7 +1301,7 @@ export default function Home() {
                         };
                         setInvoiceData(prev => ({ ...prev, lineItems: [...prev.lineItems, newItem] }));
                       }}
-                      className="px-2 py-1 bg-gray-100 hover:bg-gray-200 rounded text-gray-700 transition-colors"
+                      className="px-2 py-1 bg-gray-100 hover:bg-gray-200 rounded text-black transition-colors"
                     >
                       Consulting
                     </button>
@@ -1317,7 +1317,7 @@ export default function Home() {
                         };
                         setInvoiceData(prev => ({ ...prev, lineItems: [...prev.lineItems, newItem] }));
                       }}
-                      className="px-2 py-1 bg-gray-100 hover:bg-gray-200 rounded text-gray-700 transition-colors"
+                      className="px-2 py-1 bg-gray-100 hover:bg-gray-200 rounded text-black transition-colors"
                     >
                       Design
                     </button>
@@ -1333,7 +1333,7 @@ export default function Home() {
                         };
                         setInvoiceData(prev => ({ ...prev, lineItems: [...prev.lineItems, newItem] }));
                       }}
-                      className="px-2 py-1 bg-gray-100 hover:bg-gray-200 rounded text-gray-700 transition-colors"
+                      className="px-2 py-1 bg-gray-100 hover:bg-gray-200 rounded text-black transition-colors"
                     >
                       Development
                     </button>
@@ -1344,7 +1344,7 @@ export default function Home() {
                 <div className="lg:mb-6 mb-4 grid grid-cols-1 md:grid-cols-2 gap-4">
                   {/* Notes */}
                   <div>
-                    <div className="text-sm font-medium text-gray-700 mb-2">Notes</div>
+                    <div className="text-sm font-medium text-black mb-2">Notes</div>
                     <textarea
                       placeholder="Notes - any relevant information not already covered"
                       rows={3}
@@ -1356,7 +1356,7 @@ export default function Home() {
 
                   {/* Terms */}
                   <div>
-                    <div className="text-sm font-medium text-gray-700 mb-2">Terms & Conditions</div>
+                    <div className="text-sm font-medium text-black mb-2">Terms & Conditions</div>
                     <textarea
                       placeholder="Terms and conditions - late fees, payment methods, delivery schedule"
                       rows={3}
@@ -1369,11 +1369,11 @@ export default function Home() {
 
                 {/* Totals */}
                 <div className="border-t border-gray-200 pt-6">
-                  <h3 className="text-sm font-semibold text-gray-700 mb-4">Invoice Totals</h3>
+                  <h3 className="text-sm font-semibold text-black mb-4">Invoice Totals</h3>
                   <div className="space-y-3">
                     <div className="flex justify-between text-sm">
-                      <span className="text-gray-600">Subtotal</span>
-                      <span className="font-medium">{formatCurrency(totals.subtotal, invoiceData.currency)}</span>
+                      <span className="text-black">Subtotal</span>
+                      <span className="font-medium text-black">{formatCurrency(totals.subtotal, invoiceData.currency)}</span>
                     </div>
 
                     <div className="space-y-2">
@@ -1399,7 +1399,7 @@ export default function Home() {
                               value={invoiceData.taxRate || ''}
                               onChange={(e) => setInvoiceData(prev => ({ ...prev, taxRate: Number(e.target.value) }))}
                             />
-                            <span className="text-gray-600 text-sm">%</span>
+                            <span className="text-black text-sm">%</span>
                           </div>
                           <span className="font-medium text-right min-w-[70px] sm:min-w-[100px] text-sm">{formatCurrency(totals.taxAmount, invoiceData.currency)}</span>
                         </div>
@@ -1423,7 +1423,7 @@ export default function Home() {
 
                     {showDiscount && (
                       <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 text-sm bg-gray-50 p-2 rounded">
-                        <span className="text-gray-600">Discount</span>
+                        <span className="text-black">Discount</span>
                         <div className="flex items-center gap-1 sm:gap-2 justify-between sm:justify-end flex-1 sm:flex-initial">
                           <input
                             type="number"
@@ -1466,7 +1466,7 @@ export default function Home() {
 
                     {showShipping && (
                       <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 text-sm bg-gray-50 p-2 rounded">
-                        <span className="text-gray-600">Shipping</span>
+                        <span className="text-black">Shipping</span>
                         <div className="flex items-center gap-1 sm:gap-2 justify-between sm:justify-end flex-1 sm:flex-initial">
                           <input
                             type="number"
@@ -1490,9 +1490,9 @@ export default function Home() {
                     </div>
 
                     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 text-sm bg-blue-50 p-2 rounded">
-                      <span className="text-gray-600">Amount Paid</span>
+                      <span className="text-black">Amount Paid</span>
                       <div className="flex items-center gap-1 sm:gap-2 justify-between sm:justify-end flex-1 sm:flex-initial">
-                        <span className="text-gray-600 text-xs sm:text-sm">{invoiceData.currency === 'USD' ? '$' : invoiceData.currency}</span>
+                        <span className="text-black text-xs sm:text-sm">{invoiceData.currency === 'USD' ? '$' : invoiceData.currency}</span>
                         <input
                           type="number"
                           min="0"
@@ -1523,7 +1523,7 @@ export default function Home() {
                       <FiHelpCircle className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
                       <div>
                         <h4 className="text-sm font-semibold text-gray-900 mb-2">💡 Pro Tips</h4>
-                        <ul className="text-xs text-gray-600 space-y-1.5">
+                        <ul className="text-xs text-black space-y-1.5">
                           <li className="flex items-start gap-2">
                             <span className="text-blue-600">•</span>
                             <span>Include clear payment terms to avoid confusion</span>
@@ -1550,7 +1550,7 @@ export default function Home() {
             <div className="lg:max-w-[290px] md:max-w-[220px] w-full space-y-4">
               {/* Primary Actions - More Prominent */}
               <div className="bg-white rounded-lg border border-gray-200 p-4 shadow-sm">
-                <h3 className="text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
+                <h3 className="text-sm font-semibold text-black mb-3 flex items-center gap-2">
                   <FiFileText className="w-4 h-4 text-teal-500" />
                   Actions
                 </h3>
@@ -1597,14 +1597,14 @@ export default function Home() {
 
               {/* Settings Section */}
               <div className="bg-white rounded-lg border border-gray-200 p-4 shadow-sm">
-                <h3 className="text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
+                <h3 className="text-sm font-semibold text-black mb-3 flex items-center gap-2">
                   <FiSettings className="w-4 h-4 text-gray-500" />
                   Settings
                 </h3>
                 <div className="space-y-4">
                   {/* Theme Selector */}
                   <div>
-                    <label className="block text-xs font-medium text-gray-600 mb-2">Theme</label>
+                    <label className="block text-xs font-medium text-black mb-2">Theme</label>
                     <Select
                       instanceId="theme-select"
                       styles={selectStyles}
@@ -1621,7 +1621,7 @@ export default function Home() {
 
                   {/* Currency Selector */}
                   <div>
-                    <label className="block text-xs font-medium text-gray-600 mb-2">Currency</label>
+                    <label className="block text-xs font-medium text-black mb-2">Currency</label>
                     <Select
                       instanceId="currency-select"
                       styles={selectStyles}
@@ -1665,7 +1665,7 @@ export default function Home() {
 
                   {/* Smart Presets Selector */}
                   <div>
-                    <label className="block text-xs font-medium text-gray-600 mb-2">Quick Setup</label>
+                    <label className="block text-xs font-medium text-black mb-2">Quick Setup</label>
                     <Select
                       instanceId="quick-setup-select"
                       styles={selectStyles}
@@ -1695,18 +1695,18 @@ export default function Home() {
 
               {/* Invoice Stats */}
               <div className="bg-gradient-to-br from-teal-50 to-blue-50 rounded-lg border border-teal-200 p-4">
-                <h3 className="text-sm font-medium text-gray-700 mb-3">Invoice Summary</h3>
+                <h3 className="text-sm font-medium text-black mb-3">Invoice Summary</h3>
                 <div className="space-y-2 text-xs">
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Items:</span>
+                    <span className="text-black">Items:</span>
                     <span className="font-medium">{invoiceData.lineItems.length}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Status:</span>
+                    <span className="text-black">Status:</span>
                     <span className="font-medium capitalize">{invoiceData.metadata.status}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Due:</span>
+                    <span className="text-black">Due:</span>
                     <span className="font-medium">{invoiceData.metadata.dueDate}</span>
                   </div>
                 </div>
@@ -1723,7 +1723,7 @@ export default function Home() {
             <h2 className="text-xl sm:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
               Why Choose Invoiceza?
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className="text-black max-w-2xl mx-auto">
               The best online invoice maker for creating professional invoices instantly - no signup or login required
             </p>
           </div>
@@ -1735,7 +1735,7 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3"> Instant Invoice Creation</h3>
-              <p className="text-sm sm:text-base text-gray-600 leading-relaxed">Create professional invoices in seconds with our fast, intuitive invoice generator. No waiting, no delays.</p>
+              <p className="text-sm sm:text-base text-black leading-relaxed">Create professional invoices in seconds with our fast, intuitive invoice generator. No waiting, no delays.</p>
             </div>
             <div className="group bg-white p-4 md:p-6 md:rounded-2xl rounded-xl shadow-lg border border-gray-100 hover:shadow-2xl hover:scale-105 transition-all duration-300 hover:border-blue-200">
               <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-blue-500 to-blue-600 md:rounded-xl rounded-lg flex items-center justify-center mb-4 sm:mb-5 group-hover:scale-110 transition-transform duration-300">
@@ -1744,7 +1744,7 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">No Signup Required</h3>
-              <p className="text-sm sm:text-base text-gray-600 leading-relaxed">Start creating invoices immediately without registration, login, or providing personal information. Your privacy matters.</p>
+              <p className="text-sm sm:text-base text-black leading-relaxed">Start creating invoices immediately without registration, login, or providing personal information. Your privacy matters.</p>
             </div>
             <div className="group bg-white p-4 md:p-6 md:rounded-2xl rounded-xl shadow-lg border border-gray-100 hover:shadow-2xl hover:scale-105 transition-all duration-300 hover:border-purple-200">
               <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-purple-500 to-purple-600 md:rounded-xl rounded-lg flex items-center justify-center mb-4 sm:mb-5 group-hover:scale-110 transition-transform duration-300">
@@ -1753,7 +1753,7 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">PDF & Print Ready</h3>
-              <p className="text-sm sm:text-base text-gray-600 leading-relaxed">Download invoice as PDF instantly or print directly. Professional formatting guaranteed on all devices and printers.</p>
+              <p className="text-sm sm:text-base text-black leading-relaxed">Download invoice as PDF instantly or print directly. Professional formatting guaranteed on all devices and printers.</p>
             </div>
             <div className="group bg-white p-4 md:p-6 md:rounded-2xl rounded-xl shadow-lg border border-gray-100 hover:shadow-2xl hover:scale-105 transition-all duration-300 hover:border-green-200">
               <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-green-500 to-green-600 md:rounded-xl rounded-lg flex items-center justify-center mb-4 sm:mb-5 group-hover:scale-110 transition-transform duration-300">
@@ -1762,7 +1762,7 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">100% Free Forever</h3>
-              <p className="text-sm sm:text-base text-gray-600 leading-relaxed">No hidden fees, no subscriptions, no premium features. Create unlimited invoices completely free with our invoice generator.</p>
+              <p className="text-sm sm:text-base text-black leading-relaxed">No hidden fees, no subscriptions, no premium features. Create unlimited invoices completely free with our invoice generator.</p>
             </div>
             <div className="group bg-white p-4 md:p-6 md:rounded-2xl rounded-xl shadow-lg border border-gray-100 hover:shadow-2xl hover:scale-105 transition-all duration-300 hover:border-orange-200">
               <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-orange-500 to-orange-600 md:rounded-xl rounded-lg flex items-center justify-center mb-4 sm:mb-5 group-hover:scale-110 transition-transform duration-300">
@@ -1771,7 +1771,7 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3"> Works Worldwide</h3>
-              <p className="text-sm sm:text-base text-gray-600 leading-relaxed">Supports multiple currencies, tax systems (GST, VAT, Sales Tax), and international formats. Perfect for global businesses.</p>
+              <p className="text-sm sm:text-base text-black leading-relaxed">Supports multiple currencies, tax systems (GST, VAT, Sales Tax), and international formats. Perfect for global businesses.</p>
             </div>
             <div className="group bg-white p-4 md:p-6 md:rounded-2xl rounded-xl shadow-lg border border-gray-100 hover:shadow-2xl hover:scale-105 transition-all duration-300 hover:border-pink-200">
               <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-pink-500 to-pink-600 md:rounded-xl rounded-lg flex items-center justify-center mb-4 sm:mb-5 group-hover:scale-110 transition-transform duration-300">
@@ -1780,7 +1780,7 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3"> Mobile Friendly</h3>
-              <p className="text-sm sm:text-base text-gray-600 leading-relaxed">Create and send invoices from any device - desktop, tablet, or smartphone. Fully responsive design works everywhere.</p>
+              <p className="text-sm sm:text-base text-black leading-relaxed">Create and send invoices from any device - desktop, tablet, or smartphone. Fully responsive design works everywhere.</p>
             </div>
           </div>
         </div>
@@ -1793,7 +1793,7 @@ export default function Home() {
             <h2 className="text-xl sm:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
               Powerful Features Built for You
             </h2>
-            <p className="text-sm md:text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-sm md:text-lg text-black max-w-2xl mx-auto">
               Everything you need to create professional invoices and manage your billing efficiently.
             </p>
           </div>
@@ -1807,7 +1807,7 @@ export default function Home() {
                 </div>
                 <div className="flex-1">
                   <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1.5 sm:mb-2">Smart Presets for Quick Setup</h3>
-                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed">Pre-configured templates for India GST, US Sales Tax, UK VAT, EU VAT, and Freelancers. Get started in seconds with region-specific settings.</p>
+                  <p className="text-sm sm:text-base text-black leading-relaxed">Pre-configured templates for India GST, US Sales Tax, UK VAT, EU VAT, and Freelancers. Get started in seconds with region-specific settings.</p>
                 </div>
               </div>
 
@@ -1819,7 +1819,7 @@ export default function Home() {
                 </div>
                 <div className="flex-1">
                   <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1.5 sm:mb-2">Real-Time Validation</h3>
-                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed">Inline warnings help you catch errors before sending invoices to clients. Ensure accuracy with smart validation checks.</p>
+                  <p className="text-sm sm:text-base text-black leading-relaxed">Inline warnings help you catch errors before sending invoices to clients. Ensure accuracy with smart validation checks.</p>
                 </div>
               </div>
 
@@ -1831,7 +1831,7 @@ export default function Home() {
                 </div>
                 <div className="flex-1">
                   <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1.5 sm:mb-2">Download Invoice as PDF Instantly</h3>
-                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed">Download your invoice as a PDF instantly with our invoice generator pdf tool, ready to send to clients.</p>
+                  <p className="text-sm sm:text-base text-black leading-relaxed">Download your invoice as a PDF instantly with our invoice generator pdf tool, ready to send to clients.</p>
                 </div>
               </div>
 
@@ -1843,7 +1843,7 @@ export default function Home() {
                 </div>
                 <div className="flex-1">
                   <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1.5 sm:mb-2">Client Management System</h3>
-                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed">Save client information for faster invoice creation next time. Build your client database effortlessly.</p>
+                  <p className="text-sm sm:text-base text-black leading-relaxed">Save client information for faster invoice creation next time. Build your client database effortlessly.</p>
                 </div>
               </div>
 
@@ -1855,7 +1855,7 @@ export default function Home() {
                 </div>
                 <div className="flex-1">
                   <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1.5 sm:mb-2">Invoice History & Tracking</h3>
-                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed">Track all your invoices with automatic local storage and easy access. Never lose track of your billing.</p>
+                  <p className="text-sm sm:text-base text-black leading-relaxed">Track all your invoices with automatic local storage and easy access. Never lose track of your billing.</p>
                 </div>
               </div>
 
@@ -1867,7 +1867,7 @@ export default function Home() {
                 </div>
                 <div className="flex-1">
                   <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1.5 sm:mb-2">Easy Invoice Editing Online</h3>
-                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed">Edit invoices anytime with our intuitive online editor. Make changes instantly without starting over.</p>
+                  <p className="text-sm sm:text-base text-black leading-relaxed">Edit invoices anytime with our intuitive online editor. Make changes instantly without starting over.</p>
                 </div>
               </div>
 
@@ -1879,7 +1879,7 @@ export default function Home() {
                 </div>
                 <div className="flex-1">
                   <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1.5 sm:mb-2">Professional Invoice Templates</h3>
-                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed">Choose from multiple professional invoice templates designed for different business types and industries.</p>
+                  <p className="text-sm sm:text-base text-black leading-relaxed">Choose from multiple professional invoice templates designed for different business types and industries.</p>
                 </div>
               </div>
             </div>
@@ -1894,7 +1894,7 @@ export default function Home() {
             <h2 className="text-xl sm:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
               How to Create an Invoice in 5 Simple Steps
             </h2>
-            <p className="text-sm md:text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-sm md:text-lg text-black max-w-2xl mx-auto">
               Creating a professional invoice takes just a few minutes with our intuitive interface.
             </p>
           </div>
@@ -1907,7 +1907,7 @@ export default function Home() {
                 <div className="md:w-1/2 md:text-right md:pr-8 lg:pr-12 w-full">
                   <div className="bg-white p-4 md:p-6 rounded-xl   shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-300">
                     <h3 className="text-lg sm:text-2xl font-bold text-gray-900 mb-2 sm:mb-3">Enter Your Business Details</h3>
-                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed">Add your company name, address, contact information, and logo to personalize your invoice.</p>
+                    <p className="text-sm sm:text-base text-black leading-relaxed">Add your company name, address, contact information, and logo to personalize your invoice.</p>
                   </div>
                 </div>
                 <div className="relative z-10 flex-shrink-0 order-first md:order-none">
@@ -1929,7 +1929,7 @@ export default function Home() {
                 <div className="md:w-1/2 md:pl-8 lg:pl-12 w-full">
                   <div className="bg-white p-4 md:p-6 rounded-xl   shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-300">
                     <h3 className="text-lg sm:text-2xl font-bold text-gray-900 mb-2 sm:mb-3">Add Client Information</h3>
-                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed">Select an existing client or add new client details including billing address and contact info.</p>
+                    <p className="text-sm sm:text-base text-black leading-relaxed">Select an existing client or add new client details including billing address and contact info.</p>
                   </div>
                 </div>
               </div>
@@ -1939,7 +1939,7 @@ export default function Home() {
                 <div className="md:w-1/2 md:text-right md:pr-8 lg:pr-12 w-full">
                   <div className="bg-white p-4 md:p-6 rounded-xl   shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-300">
                     <h3 className="text-lg sm:text-2xl font-bold text-gray-900 mb-2 sm:mb-3">List Your Items or Services</h3>
-                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed">Add line items with descriptions, quantities, and rates. Calculations happen automatically in real-time.</p>
+                    <p className="text-sm sm:text-base text-black leading-relaxed">Add line items with descriptions, quantities, and rates. Calculations happen automatically in real-time.</p>
                   </div>
                 </div>
                 <div className="relative z-10 flex-shrink-0 order-first md:order-none">
@@ -1961,7 +1961,7 @@ export default function Home() {
                 <div className="md:w-1/2 md:pl-8 lg:pl-12 w-full">
                   <div className="bg-white p-4 md:p-6 rounded-xl   shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-300">
                     <h3 className="text-lg sm:text-2xl font-bold text-gray-900 mb-2 sm:mb-3">Configure Tax and Payment Terms</h3>
-                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed">Add applicable taxes (GST, VAT, Sales Tax) and set payment terms and due dates for your invoice.</p>
+                    <p className="text-sm sm:text-base text-black leading-relaxed">Add applicable taxes (GST, VAT, Sales Tax) and set payment terms and due dates for your invoice.</p>
                   </div>
                 </div>
               </div>
@@ -1971,7 +1971,7 @@ export default function Home() {
                 <div className="md:w-1/2 md:text-right md:pr-8 lg:pr-12 w-full">
                   <div className="bg-white p-4 md:p-6 rounded-xl   shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-300">
                     <h3 className="text-lg sm:text-2xl font-bold text-gray-900 mb-2 sm:mb-3">Download and Send</h3>
-                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed">Choose your preferred theme, download as PDF, and send to your client. It's that simple!</p>
+                    <p className="text-sm sm:text-base text-black leading-relaxed">Choose your preferred theme, download as PDF, and send to your client. It's that simple!</p>
                   </div>
                 </div>
                 <div className="relative z-10 flex-shrink-0 order-first md:order-none">
@@ -1993,7 +1993,7 @@ export default function Home() {
             <h2 className="text-xl sm:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
               Perfect for Freelancers and Small Businesses
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className="text-black max-w-2xl mx-auto">
               The ideal invoice maker for self-employed professionals, freelancers, and growing businesses
             </p>
           </div>
@@ -2005,7 +2005,7 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">Save Time and Money</h3>
-              <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+              <p className="text-sm sm:text-base text-black leading-relaxed">
                 Stop wasting time on complicated invoicing software or expensive accounting tools. Create professional invoices in minutes without any learning curve or monthly fees.
               </p>
             </div>
@@ -2017,7 +2017,7 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">Get Paid Faster</h3>
-              <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+              <p className="text-sm sm:text-base text-black leading-relaxed">
                 Professional-looking invoices with clear payment terms help you get paid faster. Our templates are designed to be clear, easy to understand, and encourage prompt payment.
               </p>
             </div>
@@ -2029,7 +2029,7 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">Stay Organized</h3>
-              <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+              <p className="text-sm sm:text-base text-black leading-relaxed">
                 Keep track of all your invoices with our built-in history feature. Never lose track of who owes you money, when payments are due, or which invoices have been sent.
               </p>
             </div>
@@ -2041,7 +2041,7 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">Maintain Professionalism</h3>
-              <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+              <p className="text-sm sm:text-base text-black leading-relaxed">
                 First impressions matter. Send polished, professional invoices that reflect the quality of your work and build trust with clients from the very first interaction.
               </p>
             </div>
@@ -2057,7 +2057,7 @@ export default function Home() {
               <h2 className="text-xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
                 Professional Invoice Generator - Simple, Fast & Free
               </h2>
-              <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-black max-w-3xl mx-auto leading-relaxed">
                 Create professional invoices in minutes with our free invoice generator. No signup, no login required - just instant, professional invoicing for your business.
               </p>
             </div>
@@ -2070,7 +2070,7 @@ export default function Home() {
                   </svg>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">No Login Required</h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                <p className="text-black text-sm leading-relaxed mb-4">
                   Start creating invoices immediately with our free invoice generator without login. No passwords, no verification emails, no account management. Our invoice generator no signup approach means you can begin invoicing in seconds, not minutes.
                 </p>
                 <Link href="/invoice-generator-no-login" className="text-teal-600 hover:text-teal-700 font-medium text-sm inline-flex items-center gap-1 group">
@@ -2088,7 +2088,7 @@ export default function Home() {
                   </svg>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Simple & Quick</h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                <p className="text-black text-sm leading-relaxed mb-4">
                   Our simple invoice generator online is designed for speed. As a basic invoice generator and easy invoice generator free tool, we focus on what matters. The minimal invoice generator interface and quick invoice generator features help you create invoices in under 2 minutes.
                 </p>
                 <Link href="/simple-invoice-generator" className="text-teal-600 hover:text-teal-700 font-medium text-sm inline-flex items-center gap-1 group">
@@ -2106,7 +2106,7 @@ export default function Home() {
                   </svg>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Instant PDF Generation</h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                <p className="text-black text-sm leading-relaxed mb-4">
                   Create invoice pdf online with our invoice generator pdf free technology. Get instant invoice generator pdf quality with our printable invoice generator. Download invoice pdf files that are ready to send to clients immediately.
                 </p>
                 <Link href="/invoice-generator-pdf" className="text-teal-600 hover:text-teal-700 font-medium text-sm inline-flex items-center gap-1 group">
@@ -2124,7 +2124,7 @@ export default function Home() {
                   </svg>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Perfect for Freelancers</h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                <p className="text-black text-sm leading-relaxed mb-4">
                   The best invoice generator for freelancers and self-employed professionals. Our freelance invoice generator free tool helps you create professional freelancer invoice pdf files. Ideal invoice for self employed workers and invoice tool for freelancers.
                 </p>
                 <Link href="/freelance-invoice-generator" className="text-teal-600 hover:text-teal-700 font-medium text-sm inline-flex items-center gap-1 group">
@@ -2145,7 +2145,7 @@ export default function Home() {
                 </div>
                 <div className="flex-1">
                   <h3 className="text-lg font-bold text-gray-900 mb-2">Professional Invoice Templates</h3>
-                  <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  <p className="text-black text-sm leading-relaxed mb-3">
                     Looking for ready-made templates? Browse our collection of simple invoice template pdf files, basic invoice template free downloads, and blank invoice template pdf options. We offer professional invoice template designs and small business invoice template layouts that you can customize instantly.
                   </p>
                   <Link href="/invoice-template-simple" className="text-teal-600 hover:text-teal-700 font-medium text-sm inline-flex items-center gap-1 group">
@@ -2159,11 +2159,11 @@ export default function Home() {
             </div>
 
             <div className="prose prose-gray max-w-none">
-              <p className="text-gray-700 leading-relaxed mb-4">
+              <p className="text-black leading-relaxed mb-4">
                 Our online Invoicezavides everything you need to create invoice online professionally. As a comprehensive invoice maker and invoice generator free solution, we deliver both simplicity and power. The invoice generator no watermark policy ensures your invoices represent your brand perfectly, while our online invoice generator no account system protects your privacy.
               </p>
 
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-black leading-relaxed">
                 Whether you need an instant invoice generator pdf for urgent billing or a reliable invoice generator download pdf tool for regular use, our platform handles it all. Join thousands of professionals who trust our free invoice generator for their invoicing needs.
               </p>
             </div>
@@ -2181,63 +2181,63 @@ export default function Home() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               <Link href="/invoice-generator" className="group p-4 rounded-lg border border-gray-200 hover:border-teal-500 hover:shadow-md transition-all">
                 <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-teal-600">Invoice Generator</h3>
-                <p className="text-sm text-gray-600">Create professional invoices online instantly</p>
+                <p className="text-sm text-black">Create professional invoices online instantly</p>
               </Link>
               <Link href="/online-invoice-generator" className="group p-4 rounded-lg border border-gray-200 hover:border-teal-500 hover:shadow-md transition-all">
                 <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-teal-600">Online Invoice Generator</h3>
-                <p className="text-sm text-gray-600">Web-based invoice maker with PDF download</p>
+                <p className="text-sm text-black">Web-based invoice maker with PDF download</p>
               </Link>
               <Link href="/invoice-maker" className="group p-4 rounded-lg border border-gray-200 hover:border-teal-500 hover:shadow-md transition-all">
                 <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-teal-600">Invoice Maker</h3>
-                <p className="text-sm text-gray-600">Simple & fast invoice creation tool</p>
+                <p className="text-sm text-black">Simple & fast invoice creation tool</p>
               </Link>
               <Link href="/free-invoice-maker" className="group p-4 rounded-lg border border-gray-200 hover:border-teal-500 hover:shadow-md transition-all">
                 <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-teal-600">Free Invoice Maker</h3>
-                <p className="text-sm text-gray-600">100% free with no signup required</p>
+                <p className="text-sm text-black">100% free with no signup required</p>
               </Link>
               <Link href="/invoice-creator" className="group p-4 rounded-lg border border-gray-200 hover:border-teal-500 hover:shadow-md transition-all">
                 <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-teal-600">Invoice Creator</h3>
-                <p className="text-sm text-gray-600">Build professional invoices in minutes</p>
+                <p className="text-sm text-black">Build professional invoices in minutes</p>
               </Link>
               <Link href="/invoice-generator-no-login" className="group p-4 rounded-lg border border-gray-200 hover:border-teal-500 hover:shadow-md transition-all">
                 <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-teal-600">No Login Invoice Generator</h3>
-                <p className="text-sm text-gray-600">Instant access without registration</p>
+                <p className="text-sm text-black">Instant access without registration</p>
               </Link>
               <Link href="/invoice-pdf-generator" className="group p-4 rounded-lg border border-gray-200 hover:border-teal-500 hover:shadow-md transition-all">
                 <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-teal-600">Invoice PDF Generator</h3>
-                <p className="text-sm text-gray-600">Generate and download PDF invoices</p>
+                <p className="text-sm text-black">Generate and download PDF invoices</p>
               </Link>
               <Link href="/invoice-template-pdf" className="group p-4 rounded-lg border border-gray-200 hover:border-teal-500 hover:shadow-md transition-all">
                 <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-teal-600">Invoice Template PDF</h3>
-                <p className="text-sm text-gray-600">Professional PDF templates with preview</p>
+                <p className="text-sm text-black">Professional PDF templates with preview</p>
               </Link>
               <Link href="/free-invoice-template" className="group p-4 rounded-lg border border-gray-200 hover:border-teal-500 hover:shadow-md transition-all">
                 <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-teal-600">Free Invoice Template</h3>
-                <p className="text-sm text-gray-600">PDF, Word & online templates</p>
+                <p className="text-sm text-black">PDF, Word & online templates</p>
               </Link>
               <Link href="/simple-invoice-template" className="group p-4 rounded-lg border border-gray-200 hover:border-teal-500 hover:shadow-md transition-all">
                 <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-teal-600">Simple Invoice Template</h3>
-                <p className="text-sm text-gray-600">Clean & minimal invoice designs</p>
+                <p className="text-sm text-black">Clean & minimal invoice designs</p>
               </Link>
               <Link href="/freelance-invoice-generator" className="group p-4 rounded-lg border border-gray-200 hover:border-teal-500 hover:shadow-md transition-all">
                 <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-teal-600">Freelance Invoice Generator</h3>
-                <p className="text-sm text-gray-600">Built for freelancers & self-employed</p>
+                <p className="text-sm text-black">Built for freelancers & self-employed</p>
               </Link>
               <Link href="/freelance-invoice-template" className="group p-4 rounded-lg border border-gray-200 hover:border-teal-500 hover:shadow-md transition-all">
                 <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-teal-600">Freelance Invoice Template</h3>
-                <p className="text-sm text-gray-600">Templates designed for freelancers</p>
+                <p className="text-sm text-black">Templates designed for freelancers</p>
               </Link>
               <Link href="/simple-invoice-generator" className="group p-4 rounded-lg border border-gray-200 hover:border-teal-500 hover:shadow-md transition-all">
                 <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-teal-600">Simple Invoice Generator</h3>
-                <p className="text-sm text-gray-600">Easy & straightforward invoice tool</p>
+                <p className="text-sm text-black">Easy & straightforward invoice tool</p>
               </Link>
               <Link href="/invoice-generator-pdf" className="group p-4 rounded-lg border border-gray-200 hover:border-teal-500 hover:shadow-md transition-all">
                 <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-teal-600">Invoice Generator PDF</h3>
-                <p className="text-sm text-gray-600">PDF invoice generation tool</p>
+                <p className="text-sm text-black">PDF invoice generation tool</p>
               </Link>
               <Link href="/invoice-template-simple" className="group p-4 rounded-lg border border-gray-200 hover:border-teal-500 hover:shadow-md transition-all">
                 <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-teal-600">Simple Invoice Template</h3>
-                <p className="text-sm text-gray-600">Basic templates for quick invoicing</p>
+                <p className="text-sm text-black">Basic templates for quick invoicing</p>
               </Link>
             </div>
           </div>
