@@ -27,10 +27,15 @@ export interface ClientInfo {
 export interface InvoiceMetadata {
   invoiceNumber: string;
   date: string;
-  paymentTerms: string;
-  dueDate: string;
-  poNumber: string;
-  status: 'draft' | 'sent' | 'paid' | 'overdue' | 'cancelled';
+  paymentTerms?: string;
+  dueDate?: string;
+  poNumber?: string;
+  status: 'draft' | 'sent' | 'paid' | 'overdue' | 'cancelled' | 'accepted' | 'rejected' | 'expired' | 'approved' | 'declined';
+  paymentMethod?: string;
+  paymentDate?: string;
+  receivedBy?: string;
+  validUntil?: string;
+  projectName?: string;
 }
 
 export interface InvoiceData {
@@ -51,6 +56,8 @@ export interface InvoiceData {
   paymentMethods?: string[];
   bankDetails?: string;
   signature?: string;
+  scopeOfWork?: string;
+  disclaimer?: string;
 }
 
 export interface InvoiceTotals {

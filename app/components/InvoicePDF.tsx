@@ -6,10 +6,10 @@ import { formatCurrency } from '../utils/calculations';
 // Helper function to break long text without spaces
 const breakLongText = (text: string, maxLength: number = 50): string => {
     if (!text || text.length <= maxLength) return text;
-    
+
     // If text has spaces, let it wrap naturally
     if (text.includes(' ') || text.includes('\n')) return text;
-    
+
     // Break long text without spaces into chunks
     const chunks: string[] = [];
     for (let i = 0; i < text.length; i += maxLength) {
@@ -48,7 +48,7 @@ const themeColors = {
 
 const getThemeStyles = (theme: string) => {
     const colors = themeColors[theme as keyof typeof themeColors] || themeColors.Classic;
-    
+
     return StyleSheet.create({
         page: {
             padding: 35,
@@ -224,11 +224,12 @@ const getThemeStyles = (theme: string) => {
 interface InvoicePDFProps {
     data: InvoiceData;
     totals: InvoiceTotals;
+    documentTitle?: string;
 }
 
-export const InvoicePDF: React.FC<InvoicePDFProps> = ({ data, totals }) => {
+export const InvoicePDF: React.FC<InvoicePDFProps> = ({ data, totals, documentTitle = 'INVOICE' }) => {
     const styles = getThemeStyles(data.theme);
-    
+
     return (
         <Document>
             <Page size="A4" style={styles.page}>
@@ -248,42 +249,60 @@ export const InvoicePDF: React.FC<InvoicePDFProps> = ({ data, totals }) => {
                         )}
                     </View>
                     <View>
-                        <Text style={styles.invoiceTitle}>INVOICE</Text>
+                        <Text style={styles.invoiceTitle}>{documentTitle}</Text>
                         <Text style={styles.invoiceNumber}>#{data.metadata.invoiceNumber}</Text>
                     </View>
                 </View>
 
-                {/* Bill To / Ship To */}
+                {/* Bill To / Ship To / Received From */}
                 <View style={styles.row}>
                     <View style={styles.column}>
-                        <Text style={styles.label}>Bill To</Text>
+                        <Text style={styles.label}>{documentTitle === 'RECEIPT' ? 'Received From' : 'Bill To'}</Text>
                         <Text style={styles.value}>{breakLongText(data.client.billTo, 35)}</Text>
                     </View>
-                    {data.client.shipTo && (
+                    {(data.client.shipTo || data.metadata.receivedBy) && (
                         <View style={styles.column}>
-                            <Text style={styles.label}>Ship To</Text>
-                            <Text style={styles.value}>{breakLongText(data.client.shipTo, 35)}</Text>
+                            <Text style={styles.label}>{documentTitle === 'RECEIPT' ? 'Received By' : 'Ship To'}</Text>
+                            <Text style={styles.value}>
+                                {documentTitle === 'RECEIPT'
+                                    ? breakLongText(data.metadata.receivedBy || '', 35)
+                                    : breakLongText(data.client.shipTo || '', 35)}
+                            </Text>
                         </View>
                     )}
                 </View>
 
-                {/* Invoice Details */}
+                {/* Document Details */}
                 <View style={styles.detailsGrid}>
                     <View>
                         <View style={styles.detailItem}>
                             <Text style={styles.label}>Date</Text>
                             <Text style={styles.value}>{data.metadata.date}</Text>
                         </View>
-                        <View style={styles.detailItem}>
-                            <Text style={styles.label}>Due Date</Text>
-                            <Text style={styles.value}>{data.metadata.dueDate}</Text>
-                        </View>
+                        {(data.metadata.dueDate || data.metadata.validUntil) && (
+                            <View style={styles.detailItem}>
+                                <Text style={styles.label}>{data.metadata.validUntil ? 'Valid Until' : 'Due Date'}</Text>
+                                <Text style={styles.value}>{data.metadata.validUntil || data.metadata.dueDate}</Text>
+                            </View>
+                        )}
                     </View>
                     <View>
                         {data.metadata.paymentTerms && (
                             <View style={styles.detailItem}>
                                 <Text style={styles.label}>Payment Terms</Text>
                                 <Text style={styles.value}>{data.metadata.paymentTerms}</Text>
+                            </View>
+                        )}
+                        {data.metadata.paymentMethod && (
+                            <View style={styles.detailItem}>
+                                <Text style={styles.label}>Payment Method</Text>
+                                <Text style={styles.value}>{data.metadata.paymentMethod}</Text>
+                            </View>
+                        )}
+                        {data.metadata.paymentDate && (
+                            <View style={styles.detailItem}>
+                                <Text style={styles.label}>Payment Date</Text>
+                                <Text style={styles.value}>{data.metadata.paymentDate}</Text>
                             </View>
                         )}
                         {data.metadata.poNumber && (
@@ -294,6 +313,21 @@ export const InvoicePDF: React.FC<InvoicePDFProps> = ({ data, totals }) => {
                         )}
                     </View>
                 </View>
+
+                {/* Project / Scope for Quotations/Estimates */}
+                {data.metadata.projectName && (
+                    <View style={styles.section}>
+                        <Text style={styles.label}>Project Name</Text>
+                        <Text style={styles.value}>{data.metadata.projectName}</Text>
+                    </View>
+                )}
+
+                {data.scopeOfWork && (
+                    <View style={styles.section}>
+                        <Text style={styles.label}>Scope of Work</Text>
+                        <Text style={styles.value}>{data.scopeOfWork}</Text>
+                    </View>
+                )}
 
                 {/* Line Items Table */}
                 <View style={styles.table}>
@@ -313,6 +347,27 @@ export const InvoicePDF: React.FC<InvoicePDFProps> = ({ data, totals }) => {
                         </View>
                     ))}
                 </View>
+
+                {/* PAID STAMP for Receipts */}
+                {documentTitle === 'RECEIPT' && totals.balanceDue <= 0 && (
+                    <View style={{
+                        position: 'absolute',
+                        top: 400,
+                        left: 200,
+                        borderWidth: 4,
+                        borderColor: '#10b981',
+                        borderRadius: 8,
+                        padding: 10,
+                        opacity: 0.5,
+                        transform: 'rotate(-15deg)',
+                    }}>
+                        <Text style={{
+                            fontSize: 40,
+                            fontWeight: 'bold',
+                            color: '#10b981',
+                        }}>PAID</Text>
+                    </View>
+                )}
 
                 {/* Totals */}
                 <View style={styles.totalsSection}>
@@ -365,6 +420,14 @@ export const InvoicePDF: React.FC<InvoicePDFProps> = ({ data, totals }) => {
                     <View style={styles.notes}>
                         <Text style={styles.notesTitle}>Notes</Text>
                         <Text style={styles.notesText}>{breakLongText(data.notes, 80)}</Text>
+                    </View>
+                )}
+
+                {/* Disclaimer */}
+                {data.disclaimer && (
+                    <View style={styles.notes}>
+                        <Text style={styles.notesTitle}>Disclaimer</Text>
+                        <Text style={styles.notesText}>{breakLongText(data.disclaimer, 80)}</Text>
                     </View>
                 )}
 

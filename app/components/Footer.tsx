@@ -31,8 +31,18 @@ export function Footer() {
             <h3 className="text-white font-semibold lg:mb-4 mb-2">Invoice Tools</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/invoice-generator-no-login" className="text-sm hover:text-teal-500 transition-colors">
-                  No Login Generator
+                <Link href="/receipt-maker" className="text-sm hover:text-teal-500 transition-colors">
+                  Receipt Maker
+                </Link>
+              </li>
+              <li>
+                <Link href="/quotation-maker" className="text-sm hover:text-teal-500 transition-colors">
+                  Quotation Maker
+                </Link>
+              </li>
+              <li>
+                <Link href="/estimate-maker" className="text-sm hover:text-teal-500 transition-colors">
+                  Estimate Maker
                 </Link>
               </li>
               <li>
@@ -73,6 +83,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/faq" className="text-sm hover:text-teal-500 transition-colors">
+                  FAQ
+                </Link>
+              </li>
+              <li>
                 <Link href="/" className="text-sm hover:text-teal-500 transition-colors">
                   Create Invoice
                 </Link>
@@ -80,13 +95,13 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Support */}
+          {/* Company */}
           <div>
-            <h3 className="text-white font-semibold lg:mb-4 mb-2">Support</h3>
+            <h3 className="text-white font-semibold lg:mb-4 mb-2">Company</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/faq" className="text-sm hover:text-teal-500 transition-colors">
-                  FAQ
+                <Link href="/about" className="text-sm hover:text-teal-500 transition-colors">
+                  About Us
                 </Link>
               </li>
               <li>
@@ -95,8 +110,13 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-sm hover:text-teal-500 transition-colors">
-                  About
+                <Link href="/privacy-policy" className="text-sm hover:text-teal-500 transition-colors">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms" className="text-sm hover:text-teal-500 transition-colors">
+                  Terms of Service
                 </Link>
               </li>
             </ul>

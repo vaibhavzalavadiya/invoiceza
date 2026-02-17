@@ -52,6 +52,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
+    // Receipt, Quotation & Estimate Maker Pages
+    {
+      url: `${baseUrl}/receipt-maker`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/quotation-maker`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/estimate-maker`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
     // Invoice Generator Pages
     {
       url: `${baseUrl}/invoice-generator`,

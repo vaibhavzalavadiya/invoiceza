@@ -60,14 +60,14 @@ export function Header() {
               <Link href="/features" className="text-black hover:text-teal-600 font-medium transition-colors">
                 Features
               </Link>
-              <Link href="/how-it-works" className="text-black hover:text-teal-600 font-medium transition-colors">
-                How It Works
+              <Link href="/receipt-maker" className="text-black hover:text-teal-600 font-medium transition-colors">
+                Receipt Maker
               </Link>
-              <Link href="/faq" className="text-black hover:text-teal-600 font-medium transition-colors">
-                FAQ
+              <Link href="/quotation-maker" className="text-black hover:text-teal-600 font-medium transition-colors">
+                Quotation Maker
               </Link>
-              <Link href="/contact" className="text-black hover:text-teal-600 font-medium transition-colors">
-                Contact
+              <Link href="/estimate-maker" className="text-black hover:text-teal-600 font-medium transition-colors">
+                Estimate Maker
               </Link>
               <Link
                 href="/"
@@ -155,27 +155,27 @@ export function Header() {
                   Features
                 </Link>
                 <Link
-                  href="/how-it-works"
+                  href="/receipt-maker"
                   className="text-black hover:text-teal-600 font-medium"
                   onClick={handleClose}
                 >
-                  How It Works
+                  Receipt Maker
                 </Link>
                 <Link
-                  href="/faq"
+                  href="/quotation-maker"
                   className="text-black hover:text-teal-600 font-medium"
                   onClick={handleClose}
                 >
-                  FAQ
+                  Quotation Maker
                 </Link>
                 <Link
-                  href="/contact"
+                  href="/estimate-maker"
                   className="text-black hover:text-teal-600 font-medium"
                   onClick={handleClose}
                 >
-                  Contact
+                  Estimate Maker
                 </Link>
-
+               
               </div>
             </div>
           </nav>
