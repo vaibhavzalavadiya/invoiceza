@@ -171,7 +171,7 @@ export default function EstimateForm() {
         <div className="min-h-screen bg-gray-50 pb-20">
             {isGenerating && (
                 <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-                    <div className="bg-white p-8 rounded-lg shadow-xl flex flex-col items-center gap-4">
+                    <div className="bg-white lg:p-8 p-4 rounded-lg shadow-xl flex flex-col items-center gap-4">
                         <div className="animate-spin rounded-full h-12 w-12 border-b-4 border-violet-600"></div>
                         <p className="font-medium text-gray-900">Preparing Estimate...</p>
                     </div>
