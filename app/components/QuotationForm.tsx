@@ -249,10 +249,9 @@ export default function QuotationForm() {
                 </div>
             </div>
 
-            <div className="container py-10">
-                <div className="max-w-4xl mx-auto">
-                    <h1 className="text-3xl font-bold text-center mb-10 text-gray-900">{config.pageTitle}</h1>
-
+            <section className='py-10 lg:py-16'>
+                <div className="container">
+                    <h1 className="text-xl sm:text-3xl md:text-4xl font-bold text-gray-900 text-center lg:mb-10 mb-5">{config.pageTitle}</h1>
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                         <div className="lg:col-span-2 space-y-6">
                             <div className="bg-white p-6 md:p-8 rounded-xl border-t-4 border-blue-600 shadow-sm">
@@ -392,7 +391,7 @@ export default function QuotationForm() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
     );
 }
