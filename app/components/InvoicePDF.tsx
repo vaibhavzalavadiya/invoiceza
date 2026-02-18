@@ -349,17 +349,17 @@ export const InvoicePDF: React.FC<InvoicePDFProps> = ({ data, totals, documentTi
                 </View>
 
                 {/* PAID STAMP for Receipts */}
-                {documentTitle === 'RECEIPT' && totals.balanceDue <= 0 && (
+                {documentTitle === 'RECEIPT' && (data.metadata.status === 'paid' || (data.amountPaid > 0 && totals.balanceDue <= 0)) && (
                     <View style={{
                         position: 'absolute',
-                        top: 400,
-                        left: 200,
+                        top: 280,
+                        right: 120,
                         borderWidth: 4,
                         borderColor: '#10b981',
                         borderRadius: 8,
                         padding: 10,
-                        opacity: 0.5,
-                        transform: 'rotate(-15deg)',
+                        opacity: 0.3,
+                        transform: 'rotate(-20deg)',
                     }}>
                         <Text style={{
                             fontSize: 40,

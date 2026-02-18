@@ -1562,7 +1562,7 @@ export default function Home() {
                     className="w-full bg-teal-500 text-white py-3 rounded-lg hover:bg-teal-600 font-semibold flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-sm hover:shadow-md"
                   >
                     <FiDownload className="w-5 h-5" />
-                    {isGenerating ? 'Generating...' : 'Download PDF'}
+                    {isGenerating ? 'Generating...' : 'Download Invoice PDF'}
                   </button>
 
                   {/* View Preview */}
