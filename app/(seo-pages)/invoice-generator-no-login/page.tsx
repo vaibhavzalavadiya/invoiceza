@@ -5,6 +5,7 @@ export const metadata = {
   title: 'Invoice Generator No Login (Free & Instant) | Invoiceza',
   description: 'Create professional invoices instantly without signup, registration, or login. Start generating invoices in seconds with our free online invoice generator no account required.',
   keywords: 'invoice generator no login, invoice maker no signup, free invoice without account, no registration invoice',
+  alternates: { canonical: 'https://invoiceza.com/invoice-generator-no-login' },
 };
 
 export default function InvoiceGeneratorNoLogin() {
@@ -14,11 +15,11 @@ export default function InvoiceGeneratorNoLogin() {
     "@type": "WebPage",
     "name": "Invoice Generator No Login (Free & Instant)",
     "description": "Create professional invoices instantly without signup, registration, or login. Start generating invoices in seconds with our free online invoice generator no account required.",
-    "url": "https://Invoiceza.com/invoice-generator-no-login",
+    "url": "https://invoiceza.com/invoice-generator-no-login",
     "isPartOf": {
       "@type": "WebApplication",
       "name": "Invoiceza",
-      "url": "https://Invoiceza.com"
+      "url": "https://invoiceza.com"
     },
     "about": {
       "@type": "SoftwareApplication",

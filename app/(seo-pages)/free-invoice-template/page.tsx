@@ -5,6 +5,7 @@ export const metadata = {
   title: 'Free Invoice Template (PDF, Word & Online) | Invoiceza',
   description: 'Download free invoice templates in PDF and Word formats, or use our online invoice template generator. Free printable invoice templates for all business types - no signup required.',
   keywords: 'free invoice template, invoice template free, free printable invoice template, free invoice template download',
+  alternates: { canonical: 'https://invoiceza.com/free-invoice-template' },
 };
 
 export default function FreeInvoiceTemplate() {
@@ -14,11 +15,11 @@ export default function FreeInvoiceTemplate() {
     "@type": "WebPage",
     "name": "Free Invoice Template (PDF, Word & Online)",
     "description": "Download free invoice templates in PDF and Word formats, or use our online invoice template generator. Free printable invoice templates for all business types - no signup required.",
-    "url": "https://Invoiceza.com/free-invoice-template",
+    "url": "https://invoiceza.com/free-invoice-template",
     "isPartOf": {
       "@type": "WebApplication",
       "name": "Invoiceza",
-      "url": "https://Invoiceza.com"
+      "url": "https://invoiceza.com"
     },
     "about": {
       "@type": "SoftwareApplication",

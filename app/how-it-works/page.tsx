@@ -5,6 +5,7 @@ export const metadata = {
   title: 'How It Works | Invoiceza – Free Invoice Generator',
   description: 'Create professional invoices in 3 simple steps. Fill in your details, customize and review, then download and send. No signup required.',
   keywords: 'how to create invoice, invoice generator steps, make invoice online, easy invoicing',
+  alternates: { canonical: 'https://invoiceza.com/how-it-works' },
 };
 
 export default function HowItWorks() {

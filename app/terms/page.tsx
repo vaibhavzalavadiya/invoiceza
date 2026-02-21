@@ -5,6 +5,7 @@ export const metadata = {
   title: 'Terms of Service | Invoiceza.com',
   description: 'Read the terms of service for using our free invoice generator. Understand your rights and responsibilities when creating professional invoices online.',
   keywords: 'terms of service, invoice generator terms, user agreement, terms and conditions',
+  alternates: { canonical: 'https://invoiceza.com/terms' },
 };
 
 export default function Terms() {

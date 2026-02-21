@@ -70,11 +70,6 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  // Note: Add your actual verification codes in production
-  // verification: {
-  //   google: 'your-google-verification-code',
-  //   yandex: 'your-yandex-verification-code',
-  // },
 };
 
 export const viewport: Viewport = {
@@ -95,7 +90,7 @@ export default function RootLayout({
     '@type': 'WebApplication',
     name: 'Invoiceza',
     description: 'Free online invoice generator for creating professional invoices instantly. No signup required, works in browser, download as PDF.',
-    url: 'https://Invoiceza.com',
+    url: 'https://invoiceza.com',
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'Any',
     browserRequirements: 'Requires JavaScript. Requires HTML5.',
@@ -117,35 +112,29 @@ export default function RootLayout({
       'Client management',
       'Draft saving',
     ],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.8',
-      ratingCount: '1250',
-      bestRating: '5',
-      worstRating: '1',
-    },
   };
 
   const organizationSchema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'Invoiceza',
-    url: 'https://Invoiceza.com',
-    logo: 'https://Invoiceza.com/logo.png',
-    sameAs: [
-      'https://twitter.com/invoicegenpro',
-      'https://facebook.com/invoicegenpro',
-    ],
+    url: 'https://invoiceza.com',
+    logo: 'https://invoiceza.com/images/logo.png',
+    // TODO: Add real social media profile URLs when they exist
+    // sameAs: [
+    //   'https://twitter.com/invoiceza',
+    //   'https://facebook.com/invoiceza',
+    // ],
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'Customer Support',
-      email: 'support@Invoiceza.com',
+      email: 'support@invoiceza.com',
       availableLanguage: ['English'],
     },
   };
 
   return (
-    <html lang="en">
+    <html lang="en" className={inter.variable}>
       <head>
         <script
           type="application/ld+json"
@@ -155,7 +144,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
-        <link rel="canonical" href="https://Invoiceza.com" />
+        {/* Canonical is handled by Next.js metadata API — do not add a manual canonical tag here */}
       </head>
       <body>
         <Header />
@@ -163,7 +152,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-         <Script
+        <Script
           id="microsoft-clarity"
           strategy="afterInteractive"
         >

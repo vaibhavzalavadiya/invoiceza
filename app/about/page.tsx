@@ -5,6 +5,7 @@ export const metadata = {
   title: 'About Us | Invoiceza.com - Our Story & Mission',
   description: 'Learn about Invoiceza.com - a free, secure, and easy-to-use online invoice maker for freelancers and small businesses. Create professional invoices in minutes.',
   keywords: 'about invoice generator, free invoice maker, online invoicing tool, professional invoice creator',
+  alternates: { canonical: 'https://invoiceza.com/about' },
 };
 
 export default function About() {
@@ -14,16 +15,16 @@ export default function About() {
     "@type": "AboutPage",
     "name": "About Invoiceza - Free Invoice Generator",
     "description": "Learn about Invoiceza.com - a free, secure, and easy-to-use online invoice maker for freelancers and small businesses. Create professional invoices in minutes.",
-    "url": "https://Invoiceza.com/about",
+    "url": "https://invoiceza.com/about",
     "about": {
       "@type": "Organization",
       "name": "Invoiceza",
-      "url": "https://Invoiceza.com"
+      "url": "https://invoiceza.com"
     },
     "mainEntity": {
       "@type": "Organization",
       "name": "Invoiceza",
-      "url": "https://Invoiceza.com",
+      "url": "https://invoiceza.com",
       "description": "Free online invoice generator for freelancers and small businesses"
     }
   };

@@ -4,7 +4,8 @@ import { FiTool, FiCheck, FiFileText, FiDownload, FiUsers, FiImage } from 'react
 export const metadata = {
   title: 'Invoice Maker – Simple & Fast Invoice Creation | Invoiceza',
   description: 'Free invoice maker online for small businesses. Create custom invoices with logo, generate printable PDFs instantly. Simple and fast invoice creation tool.',
-  keywords: 'invoice maker, free invoice maker online, invoice maker for small businesses, custom invoice maker',
+  keywords: 'free invoice maker, free invoice maker online, invoice maker for small businesses, custom invoice maker',
+  alternates: { canonical: 'https://invoiceza.com/invoice-maker' },
 };
 
 export default function InvoiceMaker() {
@@ -13,11 +14,11 @@ export default function InvoiceMaker() {
     "@type": "WebPage",
     "name": "Invoice Maker – Simple & Fast Invoice Creation",
     "description": "Free invoice maker online for small businesses. Create custom invoices with logo, generate printable PDFs instantly. Simple and fast invoice creation tool.",
-    "url": "https://Invoiceza.com/invoice-maker",
+    "url": "https://invoiceza.com/invoice-maker",
     "isPartOf": {
       "@type": "WebApplication",
       "name": "Invoiceza",
-      "url": "https://Invoiceza.com"
+      "url": "https://invoiceza.com"
     }
   };
 

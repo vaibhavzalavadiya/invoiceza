@@ -5,6 +5,7 @@ export const metadata = {
   title: 'Invoice Template PDF (Free Download & Generator) | Invoiceza',
   description: 'Free invoice template PDF with live preview and instant download. Create professional PDF invoices online with our customizable invoice template pdf generator - no signup required.',
   keywords: 'invoice template pdf, free invoice template pdf, invoice template pdf free, printable invoice template pdf',
+  alternates: { canonical: 'https://invoiceza.com/invoice-template-pdf' },
 };
 
 export default function InvoiceTemplatePDF() {
@@ -14,11 +15,11 @@ export default function InvoiceTemplatePDF() {
     "@type": "WebPage",
     "name": "Invoice Template PDF (Free Download & Generator)",
     "description": "Free invoice template PDF with live preview and instant download. Create professional PDF invoices online with our customizable invoice template pdf generator - no signup required.",
-    "url": "https://Invoiceza.com/invoice-template-pdf",
+    "url": "https://invoiceza.com/invoice-template-pdf",
     "isPartOf": {
       "@type": "WebApplication",
       "name": "Invoiceza",
-      "url": "https://Invoiceza.com"
+      "url": "https://invoiceza.com"
     },
     "about": {
       "@type": "SoftwareApplication",

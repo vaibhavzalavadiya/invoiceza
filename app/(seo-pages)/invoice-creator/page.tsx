@@ -5,6 +5,7 @@ export const metadata = {
   title: 'Invoice Creator – Build Invoices in Minutes | Invoiceza',
   description: 'Professional invoice creator online for business. Create custom invoices with PDF tool, easy and free. Build professional invoices quickly.',
   keywords: 'invoice creator, invoice creator online, invoice creator for business, professional invoice creator',
+  alternates: { canonical: 'https://invoiceza.com/invoice-creator' },
 };
 
 export default function InvoiceCreator() {
@@ -13,11 +14,11 @@ export default function InvoiceCreator() {
     "@type": "WebPage",
     "name": "Invoice Creator – Build Invoices in Minutes",
     "description": "Professional invoice creator online for business. Create custom invoices with PDF tool, easy and free. Build professional invoices quickly.",
-    "url": "https://Invoiceza.com/invoice-creator",
+    "url": "https://invoiceza.com/invoice-creator",
     "isPartOf": {
       "@type": "WebApplication",
       "name": "Invoiceza",
-      "url": "https://Invoiceza.com"
+      "url": "https://invoiceza.com"
     }
   };
 

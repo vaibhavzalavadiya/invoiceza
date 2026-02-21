@@ -5,6 +5,7 @@ export const metadata = {
   title: 'Simple Invoice Template (Clean & Minimal) | Invoiceza',
   description: 'Free simple invoice template for freelancers and small businesses. Clean, minimal, and easy to use. Download basic invoice templates or create simple invoices online.',
   keywords: 'simple invoice template, simple invoice, basic invoice template, minimal invoice template',
+  alternates: { canonical: 'https://invoiceza.com/simple-invoice-template' },
 };
 
 export default function SimpleInvoiceTemplate() {
@@ -14,11 +15,11 @@ export default function SimpleInvoiceTemplate() {
     "@type": "WebPage",
     "name": "Simple Invoice Template (Clean & Minimal)",
     "description": "Free simple invoice template for freelancers and small businesses. Clean, minimal, and easy to use. Download basic invoice templates or create simple invoices online.",
-    "url": "https://Invoiceza.com/simple-invoice-template",
+    "url": "https://invoiceza.com/simple-invoice-template",
     "isPartOf": {
       "@type": "WebApplication",
       "name": "Invoiceza",
-      "url": "https://Invoiceza.com"
+      "url": "https://invoiceza.com"
     },
     "about": {
       "@type": "SoftwareApplication",

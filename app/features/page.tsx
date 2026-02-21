@@ -5,6 +5,7 @@ export const metadata = {
   title: 'Features | Invoiceza – Free Invoice, Receipt, Quotation & Estimate Generator',
   description: 'Explore all features of Invoiceza: create professional invoices, receipts, quotations, and estimates in seconds. Free PDF download, 22+ currencies, sample data, auto-save, and more.',
   keywords: 'invoice generator features, free receipt maker features, quotation generator features, estimate maker features, online invoicing tools, PDF invoice, receipt PDF, quotation PDF, estimate PDF',
+  alternates: { canonical: 'https://invoiceza.com/features' },
 };
 
 export default function Features() {

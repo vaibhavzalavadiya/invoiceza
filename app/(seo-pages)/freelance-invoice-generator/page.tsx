@@ -5,6 +5,7 @@ export const metadata = {
     title: 'Freelance Invoice Generator (Free Tool) | Invoiceza',
     description: 'The best invoice generator for freelancers. Create professional freelance invoices in minutes with our free invoice tool designed specifically for self-employed professionals and independent contractors.',
     keywords: 'freelance invoice generator, invoice for freelancers, self employed invoice, freelancer invoice pdf',
+  alternates: { canonical: 'https://invoiceza.com/freelance-invoice-generator' },
 };
 
 export default function FreelanceInvoiceGenerator() {
@@ -14,11 +15,11 @@ export default function FreelanceInvoiceGenerator() {
         "@type": "WebPage",
         "name": "Freelance Invoice Generator (Free Tool)",
         "description": "The best invoice generator for freelancers. Create professional freelance invoices in minutes with our free invoice tool designed specifically for self-employed professionals and independent contractors.",
-        "url": "https://Invoiceza.com/freelance-invoice-generator",
+        "url": "https://invoiceza.com/freelance-invoice-generator",
         "isPartOf": {
             "@type": "WebApplication",
             "name": "Invoiceza",
-            "url": "https://Invoiceza.com"
+            "url": "https://invoiceza.com"
         },
         "about": {
             "@type": "SoftwareApplication",

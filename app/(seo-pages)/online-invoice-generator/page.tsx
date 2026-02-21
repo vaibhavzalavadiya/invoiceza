@@ -5,6 +5,7 @@ export const metadata = {
   title: 'Online Invoice Generator – Make Invoices Instantly | Invoiceza',
   description: 'Create invoices online for free with our web-based invoice generator. Instant PDF download, no login required. Secure online invoice maker for businesses.',
   keywords: 'online invoice generator, create invoice online free, web-based invoice maker, instant invoice generator',
+  alternates: { canonical: 'https://invoiceza.com/online-invoice-generator' },
 };
 
 export default function OnlineInvoiceGenerator() {
@@ -13,11 +14,11 @@ export default function OnlineInvoiceGenerator() {
     "@type": "WebPage",
     "name": "Online Invoice Generator – Make Invoices Instantly",
     "description": "Create invoices online for free with our web-based invoice generator. Instant PDF download, no login required. Secure online invoice maker for businesses.",
-    "url": "https://Invoiceza.com/online-invoice-generator",
+    "url": "https://invoiceza.com/online-invoice-generator",
     "isPartOf": {
       "@type": "WebApplication",
       "name": "Invoiceza",
-      "url": "https://Invoiceza.com"
+      "url": "https://invoiceza.com"
     }
   };
 

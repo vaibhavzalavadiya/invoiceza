@@ -5,6 +5,7 @@ export const metadata = {
   title: 'Free Invoice Maker – Create Invoices at No Cost | Invoiceza',
   description: '100% free invoice maker online without signup. Create professional invoices with templates, download PDFs instantly. Perfect for freelancers.',
   keywords: 'free invoice maker, 100% free invoice maker online, free invoice maker without signup, free invoice maker pdf',
+  alternates: { canonical: 'https://invoiceza.com/free-invoice-maker' },
 };
 
 export default function FreeInvoiceMaker() {
@@ -13,11 +14,11 @@ export default function FreeInvoiceMaker() {
     "@type": "WebPage",
     "name": "Free Invoice Maker – Create Invoices at No Cost",
     "description": "100% free invoice maker online without signup. Create professional invoices with templates, download PDFs instantly. Perfect for freelancers.",
-    "url": "https://Invoiceza.com/free-invoice-maker",
+    "url": "https://invoiceza.com/free-invoice-maker",
     "isPartOf": {
       "@type": "WebApplication",
       "name": "Invoiceza",
-      "url": "https://Invoiceza.com"
+      "url": "https://invoiceza.com"
     }
   };
 

@@ -5,6 +5,7 @@ export const metadata = {
   title: 'Privacy Policy | Invoiceza',
   description: 'Learn how Invoiceza protects your data. We prioritize your privacy with secure, browser-based invoice creation. No data stored on servers.',
   keywords: 'privacy policy, data protection, invoice generator privacy, secure invoicing',
+  alternates: { canonical: 'https://invoiceza.com/privacy-policy' },
 };
 
 export default function PrivacyPolicy() {

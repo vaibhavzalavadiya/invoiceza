@@ -5,6 +5,7 @@ export const metadata = {
   title: 'Invoice Generator – Create Professional Invoices Online | Invoiceza',
   description: 'Free online invoice generator to create and download professional invoices in seconds. No signup required. Perfect for freelancers and businesses.',
   keywords: 'invoice generator, free online invoice generator, create invoice online, invoice generator pdf',
+  alternates: { canonical: 'https://invoiceza.com/invoice-generator' },
 };
 
 export default function InvoiceGenerator() {
@@ -14,11 +15,11 @@ export default function InvoiceGenerator() {
     "@type": "WebPage",
     "name": "Invoice Generator – Create Professional Invoices Online",
     "description": "Free online invoice generator to create and download professional invoices in seconds. No signup required. Perfect for freelancers and businesses.",
-    "url": "https://Invoiceza.com/invoice-generator",
+    "url": "https://invoiceza.com/invoice-generator",
     "isPartOf": {
       "@type": "WebApplication",
       "name": "Invoiceza",
-      "url": "https://Invoiceza.com"
+      "url": "https://invoiceza.com"
     },
     "about": {
       "@type": "SoftwareApplication",

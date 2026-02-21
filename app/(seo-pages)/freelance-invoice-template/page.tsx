@@ -5,6 +5,7 @@ export const metadata = {
   title: 'Freelance Invoice Template (Free for Freelancers) | Invoiceza',
   description: 'Free freelance invoice template designed for independent professionals. Create professional invoices for freelancers with our specialized templates and generator.',
   keywords: 'freelance invoice template, invoice for freelancers, freelancer invoice example, freelance invoice format',
+  alternates: { canonical: 'https://invoiceza.com/freelance-invoice-template' },
 };
 
 export default function FreelanceInvoiceTemplate() {
@@ -14,11 +15,11 @@ export default function FreelanceInvoiceTemplate() {
     "@type": "WebPage",
     "name": "Freelance Invoice Template (Free for Freelancers)",
     "description": "Free freelance invoice template designed for independent professionals. Create professional invoices for freelancers with our specialized templates and generator.",
-    "url": "https://Invoiceza.com/freelance-invoice-template",
+    "url": "https://invoiceza.com/freelance-invoice-template",
     "isPartOf": {
       "@type": "WebApplication",
       "name": "Invoiceza",
-      "url": "https://Invoiceza.com"
+      "url": "https://invoiceza.com"
     },
     "about": {
       "@type": "SoftwareApplication",

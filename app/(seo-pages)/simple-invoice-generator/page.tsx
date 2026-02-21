@@ -5,6 +5,7 @@ export const metadata = {
   title: 'Simple Invoice Generator (Clean & Easy) | Invoiceza',
   description: 'The easiest way to create professional invoices online. Our simple invoice generator online tool is designed for speed and simplicity - no complicated features, just clean and easy invoice creation.',
   keywords: 'simple invoice generator, easy invoice maker, basic invoice generator, simple invoicing tool',
+  alternates: { canonical: 'https://invoiceza.com/simple-invoice-generator' },
 };
 
 export default function SimpleInvoiceGenerator() {
@@ -14,11 +15,11 @@ export default function SimpleInvoiceGenerator() {
     "@type": "WebPage",
     "name": "Simple Invoice Generator (Clean & Easy)",
     "description": "The easiest way to create professional invoices online. Our simple invoice generator online tool is designed for speed and simplicity - no complicated features, just clean and easy invoice creation.",
-    "url": "https://Invoiceza.com/simple-invoice-generator",
+    "url": "https://invoiceza.com/simple-invoice-generator",
     "isPartOf": {
       "@type": "WebApplication",
       "name": "Invoiceza",
-      "url": "https://Invoiceza.com"
+      "url": "https://invoiceza.com"
     },
     "about": {
       "@type": "SoftwareApplication",

@@ -4,7 +4,8 @@ import { FiDownload, FiFileText, FiCheck, FiCopy, FiEdit, FiPrinter } from 'reac
 export const metadata = {
   title: 'Simple Invoice Template (Free Download) | Invoiceza',
   description: 'Download free simple invoice template PDF files or create custom invoices online. Professional invoice templates for small business, freelancers, and contractors - no signup required.',
-  keywords: 'simple invoice template, free invoice template, invoice template pdf, basic invoice template',
+  keywords: 'invoice template simple, free invoice template, invoice template pdf, basic invoice template',
+  alternates: { canonical: 'https://invoiceza.com/invoice-template-simple' },
 };
 
 export default function InvoiceTemplateSimple() {
@@ -14,11 +15,11 @@ export default function InvoiceTemplateSimple() {
     "@type": "WebPage",
     "name": "Simple Invoice Template (Free Download)",
     "description": "Download free simple invoice template PDF files or create custom invoices online. Professional invoice templates for small business, freelancers, and contractors - no signup required.",
-    "url": "https://Invoiceza.com/invoice-template-simple",
+    "url": "https://invoiceza.com/invoice-template-simple",
     "isPartOf": {
       "@type": "WebApplication",
       "name": "Invoiceza",
-      "url": "https://Invoiceza.com"
+      "url": "https://invoiceza.com"
     },
     "about": {
       "@type": "SoftwareApplication",

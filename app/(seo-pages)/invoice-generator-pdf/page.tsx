@@ -5,6 +5,7 @@ export const metadata = {
   title: 'Invoice Generator PDF (Create & Download) | Invoiceza',
   description: 'Create professional PDF invoices instantly with our invoice generator pdf free tool. Generate, download, and print high-quality invoice PDFs in seconds.',
   keywords: 'invoice generator pdf, pdf invoice maker, create invoice pdf, download invoice pdf',
+  alternates: { canonical: 'https://invoiceza.com/invoice-generator-pdf' },
 };
 
 export default function InvoiceGeneratorPDF() {
@@ -14,11 +15,11 @@ export default function InvoiceGeneratorPDF() {
     "@type": "WebPage",
     "name": "Invoice Generator PDF (Create & Download)",
     "description": "Create professional PDF invoices instantly with our invoice generator pdf free tool. Generate, download, and print high-quality invoice PDFs in seconds.",
-    "url": "https://Invoiceza.com/invoice-generator-pdf",
+    "url": "https://invoiceza.com/invoice-generator-pdf",
     "isPartOf": {
       "@type": "WebApplication",
       "name": "Invoiceza",
-      "url": "https://Invoiceza.com"
+      "url": "https://invoiceza.com"
     },
     "about": {
       "@type": "SoftwareApplication",

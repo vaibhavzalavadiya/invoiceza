@@ -5,6 +5,7 @@ export const metadata = {
   title: 'FAQ – Frequently Asked Questions | Invoiceza',
   description: 'Find answers to common questions about our free invoice generator. Learn how to create invoices, download PDFs, save drafts, and more.',
   keywords: 'invoice generator FAQ, how to create invoice, invoice maker questions, free invoicing help',
+  alternates: { canonical: 'https://invoiceza.com/faq' },
 };
 
 const faqs = [

@@ -5,6 +5,7 @@ export const metadata = {
   title: 'Contact Us | Invoiceza – Get Help & Support',
   description: 'Need help with our free invoice generator? Contact our support team for assistance with creating invoices, troubleshooting, or feature requests.',
   keywords: 'contact invoice generator, invoice maker support, help with invoices, customer service',
+  alternates: { canonical: 'https://invoiceza.com/contact' },
 };
 
 export default function Contact() {
@@ -14,11 +15,11 @@ export default function Contact() {
     "@type": "ContactPage",
     "name": "Contact Invoiceza - Get Help & Support",
     "description": "Need help with our free invoice generator? Contact our support team for assistance with creating invoices, troubleshooting, or feature requests.",
-    "url": "https://Invoiceza.com/contact",
+    "url": "https://invoiceza.com/contact",
     "about": {
       "@type": "Organization",
       "name": "Invoiceza",
-      "url": "https://Invoiceza.com"
+      "url": "https://invoiceza.com"
     }
   };
 
@@ -77,7 +78,7 @@ export default function Contact() {
                     Have an idea to improve our invoice generator? We'd love to hear your suggestions for new features.
                   </p>
                   <a
-                    href="mailto:support@Invoiceza.com?subject=Feature Request"
+                    href="mailto:support@invoiceza.com?subject=Feature Request"
                     className="text-blue-600 hover:text-blue-700 font-medium text-xs sm:text-sm"
                   >
                     Send Suggestion →
@@ -94,10 +95,10 @@ export default function Contact() {
                     <div>
                       <h3 className="font-semibold text-gray-900 text-sm sm:text-base mb-1">Email Support</h3>
                       <a
-                        href="mailto:support@Invoiceza.com"
+                        href="mailto:support@invoiceza.com"
                         className="text-teal-600 hover:text-teal-700 text-sm sm:text-base"
                       >
-                        support@Invoiceza.com
+                        support@invoiceza.com
                       </a>
                       <p className="text-xs sm:text-sm text-gray-600 mt-1">We respond within 24-48 hours</p>
                     </div>
@@ -108,10 +109,10 @@ export default function Contact() {
                     <div>
                       <h3 className="font-semibold text-gray-900 text-sm sm:text-base mb-1">General Inquiries</h3>
                       <a
-                        href="mailto:info@Invoiceza.com"
+                        href="mailto:info@invoiceza.com"
                         className="text-blue-600 hover:text-blue-700 text-sm sm:text-base"
                       >
-                        info@Invoiceza.com
+                        info@invoiceza.com
                       </a>
                       <p className="text-xs sm:text-sm text-gray-600 mt-1">For business partnerships and media</p>
                     </div>
@@ -122,10 +123,10 @@ export default function Contact() {
                     <div>
                       <h3 className="font-semibold text-gray-900 text-sm sm:text-base mb-1">Bug Reports</h3>
                       <a
-                        href="mailto:bugs@Invoiceza.com?subject=Bug Report"
+                        href="mailto:bugs@invoiceza.com?subject=Bug Report"
                         className="text-purple-600 hover:text-purple-700 text-sm sm:text-base"
                       >
-                        bugs@Invoiceza.com
+                        bugs@invoiceza.com
                       </a>
                       <p className="text-xs sm:text-sm text-gray-600 mt-1">Help us improve by reporting issues</p>
                     </div>
