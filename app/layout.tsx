@@ -44,20 +44,11 @@ export const metadata: Metadata = {
     siteName: 'Invoiceza',
     locale: 'en_US',
     type: 'website',
-    images: [
-      {
-        url: '/og-image.png',
-        width: 1200,
-        height: 630,
-        alt: 'Invoiceza - Free Invoice Maker',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Free Invoice Generator - Create Professional Invoices',
     description: 'Create professional invoices instantly. Free, no signup required.',
-    images: ['/og-image.png'],
   },
   robots: {
     index: true,
