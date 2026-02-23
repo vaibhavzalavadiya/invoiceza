@@ -3,7 +3,10 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   // Production optimizations
   reactStrictMode: true,
-  
+
+  // URL normalization — prevent /page and /page/ from being indexed separately
+  trailingSlash: false,
+
   // Image optimization
   images: {
     formats: ['image/avif', 'image/webp'],

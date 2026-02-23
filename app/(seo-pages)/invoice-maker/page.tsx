@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { FiTool, FiCheck, FiFileText, FiDownload, FiUsers, FiImage } from 'react-icons/fi';
+import { RelatedTools } from '../../components/RelatedTools';
 
 export const metadata = {
   title: 'Invoice Maker – Simple & Fast Invoice Creation | Invoiceza',
@@ -193,19 +194,7 @@ export default function InvoiceMaker() {
         </div>
       </article>
 
-      <section className='lg:mb-16 mb-10'>
-        <div className="container">
-          <div className="bg-gray-100 rounded-lg lg:p-6 p-4">
-            <h3 className="lg:text-xl text-base font-semibold text-gray-900 lg:mb-4 mb-2">More Invoice Tools</h3>
-            <div className="grid sm:grid-cols-2 gap-3">
-              <Link href="/invoice-generator" className="text-teal-600 hover:text-teal-700 font-medium">→ Invoice Generator</Link>
-              <Link href="/online-invoice-generator" className="text-teal-600 hover:text-teal-700 font-medium">→ Online Invoice Generator</Link>
-              <Link href="/free-invoice-maker" className="text-teal-600 hover:text-teal-700 font-medium">→ Free Invoice Maker</Link>
-              <Link href="/invoice-creator" className="text-teal-600 hover:text-teal-700 font-medium">→ Invoice Creator</Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <RelatedTools currentPage="/invoice-maker" />
       </div>
     </>
   );

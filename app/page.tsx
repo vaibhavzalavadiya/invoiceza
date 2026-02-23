@@ -30,6 +30,7 @@ import {
 import { InvoiceData, LineItem } from './types/invoice';
 import { calculateInvoiceTotals, formatCurrency, calculateLineItemAmount, generateInvoiceNumber } from './utils/calculations';
 import { saveDraft, loadDraft, clearDraft, hasDraft } from './utils/storage';
+import { numberToWords } from './utils/numberToWords';
 import { getTodayDate, getDueDateFromToday } from './utils/formatters';
 import { InvoicePDF } from './components/InvoicePDF';
 import { getEmptyInvoiceData, getSampleInvoiceData } from './utils/sampleData';
@@ -95,6 +96,11 @@ export default function Home() {
   const [lastSaved, setLastSaved] = useState<Date | null>(null);
   const [selectedPreset, setSelectedPreset] = useState<string>('');
   const [validationWarnings, setValidationWarnings] = useState<string[]>([]);
+  const [touchedFields, setTouchedFields] = useState<Set<string>>(new Set());
+
+  const markFieldTouched = (field: string) => {
+    setTouchedFields(prev => new Set(prev).add(field));
+  };
 
   // Confirmation modal state
   const [confirmModal, setConfirmModal] = useState<{
@@ -403,10 +409,66 @@ export default function Home() {
   };
 
   const handleMetadataChange = (field: keyof InvoiceData['metadata'], value: string) => {
-    setInvoiceData(prev => ({
-      ...prev,
-      metadata: { ...prev.metadata, [field]: value },
-    }));
+    setInvoiceData(prev => {
+      const updated = {
+        ...prev,
+        metadata: { ...prev.metadata, [field]: value },
+      };
+
+      // Auto-calculate due date when payment terms change
+      if (field === 'paymentTerms' && updated.metadata.date) {
+        const daysMap: Record<string, number> = {
+          'Due on Receipt': 0,
+          'Net 7': 7,
+          'Net 15': 15,
+          'Net 30': 30,
+          'Net 60': 60,
+          'Net 90': 90,
+        };
+        const days = daysMap[value];
+        if (days !== undefined) {
+          const baseDate = new Date(updated.metadata.date);
+          baseDate.setDate(baseDate.getDate() + days);
+          updated.metadata.dueDate = baseDate.toISOString().split('T')[0];
+        }
+      }
+
+      // Auto-calculate due date when invoice date changes and payment terms are set
+      if (field === 'date' && updated.metadata.paymentTerms) {
+        const daysMap: Record<string, number> = {
+          'Due on Receipt': 0,
+          'Net 7': 7,
+          'Net 15': 15,
+          'Net 30': 30,
+          'Net 60': 60,
+          'Net 90': 90,
+        };
+        const days = daysMap[updated.metadata.paymentTerms];
+        if (days !== undefined) {
+          const baseDate = new Date(value);
+          baseDate.setDate(baseDate.getDate() + days);
+          updated.metadata.dueDate = baseDate.toISOString().split('T')[0];
+        }
+      }
+
+      return updated;
+    });
+  };
+
+  // Tab navigation handler for line items - auto-add new row on Tab from last field of last item
+  const handleLineItemTab = (e: React.KeyboardEvent, itemId: string, field: string) => {
+    if (e.key === 'Tab' && !e.shiftKey) {
+      const lastItem = invoiceData.lineItems[invoiceData.lineItems.length - 1];
+      if (lastItem.id === itemId && field === 'rate') {
+        e.preventDefault();
+        addLineItem();
+        // Focus the new item's description after a tick
+        setTimeout(() => {
+          const newInput = document.querySelector(`[data-item-field="description"]:last-of-type`) as HTMLInputElement;
+          newInput?.focus();
+        }, 50);
+      }
+    }
   };
 
   const handleLineItemChange = (id: string, field: keyof LineItem, value: string | number | boolean) => {
@@ -1033,35 +1095,55 @@ export default function Home() {
 
                     {/* Business Info - Editable */}
                     <div className="text-sm text-black space-y-3">
-                      <input
-                        type="text"
-                        placeholder="Your Business Name"
-                        className="font-semibold text-gray-900 w-full border border-gray-300 rounded-md focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none px-3 py-2 transition-all"
-                        value={invoiceData.business.name}
-                        onChange={(e) => handleBusinessChange('name', e.target.value)}
-                      />
-                      <textarea
-                        placeholder="Your business address"
-                        rows={2}
-                        className="w-full border border-gray-300 rounded-md focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none px-3 py-2 resize-none transition-all"
-                        value={invoiceData.business.address}
-                        onChange={(e) => handleBusinessChange('address', e.target.value)}
-                      />
+                      <div className="relative">
+                        <label className="block text-xs font-medium text-gray-500 mb-1">Business Name <span className="text-red-400">*</span></label>
+                        <input
+                          type="text"
+                          placeholder="e.g. Acme Inc."
+                          className={`font-semibold text-gray-900 w-full border rounded-md focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none px-3 py-2 transition-all ${touchedFields.has('business.name') && !invoiceData.business.name ? 'border-red-300 bg-red-50/30' : 'border-gray-300'
+                            }`}
+                          value={invoiceData.business.name}
+                          onChange={(e) => handleBusinessChange('name', e.target.value)}
+                          onBlur={() => markFieldTouched('business.name')}
+                        />
+                        {touchedFields.has('business.name') && !invoiceData.business.name && (
+                          <p className="text-xs text-red-500 mt-1 flex items-center gap-1">
+                            <FiAlertCircle className="w-3 h-3" />
+                            Business name is required
+                          </p>
+                        )}
+                      </div>
+                      <div>
+                        <label className="block text-xs font-medium text-gray-500 mb-1">Address</label>
+                        <textarea
+                          placeholder="Street address, City, State, ZIP"
+                          rows={2}
+                          className="w-full border border-gray-300 rounded-md focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none px-3 py-2 resize-none transition-all"
+                          value={invoiceData.business.address}
+                          onChange={(e) => handleBusinessChange('address', e.target.value)}
+                        />
+                      </div>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <input
-                          type="email"
-                          placeholder="Email (optional)"
-                          className="w-full border border-gray-300 rounded-md focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none px-3 py-2 transition-all"
-                          value={invoiceData.business.email}
-                          onChange={(e) => handleBusinessChange('email', e.target.value)}
-                        />
-                        <input
-                          type="tel"
-                          placeholder="Phone (optional)"
-                          className="w-full border border-gray-300 rounded-md focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none px-3 py-2 transition-all"
-                          value={invoiceData.business.phone}
-                          onChange={(e) => handleBusinessChange('phone', e.target.value)}
-                        />
+                        <div>
+                          <label className="block text-xs font-medium text-gray-500 mb-1">Email</label>
+                          <input
+                            type="email"
+                            placeholder="email@company.com"
+                            className="w-full border border-gray-300 rounded-md focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none px-3 py-2 transition-all"
+                            value={invoiceData.business.email}
+                            onChange={(e) => handleBusinessChange('email', e.target.value)}
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-xs font-medium text-gray-500 mb-1">Phone</label>
+                          <input
+                            type="tel"
+                            placeholder="+1 (555) 000-0000"
+                            className="w-full border border-gray-300 rounded-md focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none px-3 py-2 transition-all"
+                            value={invoiceData.business.phone}
+                            onChange={(e) => handleBusinessChange('phone', e.target.value)}
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -1102,7 +1184,7 @@ export default function Home() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mb-5 md:mb-8">
                   <div>
                     <div className="text-xs font-semibold text-gray-500 mb-3 flex items-center justify-between">
-                      BILL TO
+                      BILL TO <span className="text-red-400 font-normal">*</span>
                       <button
                         onClick={() => setShowClientSelector(true)}
                         className="text-xs text-teal-600 hover:text-teal-700 flex items-center gap-1 font-normal transition-colors"
@@ -1113,15 +1195,16 @@ export default function Home() {
                       </button>
                     </div>
                     <textarea
-                      placeholder="Who is this for?"
+                      placeholder="Client name, address, email..."
                       rows={3}
-                      className={`w-full text-sm text-black border rounded-md focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none px-3 py-2 resize-none transition-all ${!invoiceData.client.billTo && completionPercentage < 100 ? 'border-orange-300 bg-orange-50/30' : 'border-gray-300'
+                      className={`w-full text-sm text-black border rounded-md focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none px-3 py-2 resize-none transition-all ${touchedFields.has('client.billTo') && !invoiceData.client.billTo ? 'border-red-300 bg-red-50/30' : !invoiceData.client.billTo && completionPercentage < 100 ? 'border-orange-300 bg-orange-50/30' : 'border-gray-300'
                         }`}
                       value={invoiceData.client.billTo}
                       onChange={(e) => handleClientChange('billTo', e.target.value)}
+                      onBlur={() => markFieldTouched('client.billTo')}
                     />
-                    {!invoiceData.client.billTo && completionPercentage > 30 && (
-                      <p className="text-xs text-orange-600 mt-1 flex items-center gap-1">
+                    {touchedFields.has('client.billTo') && !invoiceData.client.billTo && (
+                      <p className="text-xs text-red-500 mt-1 flex items-center gap-1">
                         <FiAlertCircle className="w-3 h-3" />
                         Client information is required
                       </p>
@@ -1191,90 +1274,169 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Line Items Table */}
-                <div className="overflow-x-auto -mx-3 sm:-mx-4 md:mx-0">
-                  <div className="inline-block min-w-full align-middle">
-                    <div className="overflow-hidden">
-                      <table className="min-w-full mb-4">
-                        <thead>
-                          <tr className="bg-gray-800 text-white text-xs md:text-sm">
-                            <th className="text-left py-2 px-2 md:px-3">Item</th>
-                            <th className="text-center py-2 px-2 w-12 md:w-16">Tax</th>
-                            <th className="text-right py-2 px-2 md:px-3 w-16 md:w-20">Qty</th>
-                            <th className="text-right py-2 px-2 md:px-3 w-20 md:w-24">Rate</th>
-                            <th className="text-right py-2 px-2 md:px-3 w-24 md:w-28">Amount</th>
-                            <th className="w-12 md:w-16"></th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {invoiceData.lineItems.map((item, index) => (
-                            <tr key={item.id} className="border-b border-gray-200 hover:bg-gray-50">
-                              <td className="py-2 px-2 md:px-3 min-w-[190px]">
-                                <input
-                                  type="text"
-                                  placeholder="Description of item/service..."
-                                  className="w-full focus:outline-none text-sm"
-                                  value={item.description}
-                                  onChange={(e) => handleLineItemChange(item.id, 'description', e.target.value)}
-                                />
-                              </td>
-                              <td className="py-2 px-2 text-center">
-                                <input
-                                  type="checkbox"
-                                  className="w-4 h-4 text-teal-600 border-gray-300 rounded focus:ring-teal-500"
-                                  checked={item.taxable}
-                                  onChange={(e) => handleLineItemChange(item.id, 'taxable', e.target.checked)}
-                                  title="Taxable item"
-                                />
-                              </td>
-                              <td className="py-2 px-3">
-                                <input
-                                  type="number"
-                                  min="1"
-                                  className="w-full text-right focus:outline-none text-sm"
-                                  value={item.quantity}
-                                  onChange={(e) => handleLineItemChange(item.id, 'quantity', Number(e.target.value))}
-                                />
-                              </td>
-                              <td className="py-2 px-3">
-                                <input
-                                  type="number"
-                                  min="0"
-                                  step="0.01"
-                                  className="w-full text-right focus:outline-none text-sm"
-                                  value={item.rate}
-                                  onChange={(e) => handleLineItemChange(item.id, 'rate', Number(e.target.value))}
-                                />
-                              </td>
-                              <td className="py-2 px-2 md:px-3 text-right text-xs md:text-sm font-medium">
-                                {formatCurrency(item.amount, invoiceData.currency)}
-                              </td>
-                              <td className="py-2 px-1 md:px-2">
-                                <div className="flex gap-1">
-                                  <button
-                                    onClick={() => duplicateLineItem(item.id)}
-                                    className="text-gray-400 hover:text-teal-600"
-                                    title="Duplicate"
-                                  >
-                                    <FiCopy className="w-4 h-4" />
-                                  </button>
-                                  {invoiceData.lineItems.length > 1 && (
-                                    <button
-                                      onClick={() => removeLineItem(item.id)}
-                                      className="text-gray-400 hover:text-red-600"
-                                      title="Delete"
-                                    >
-                                      <FiTrash2 className="w-4 h-4" />
-                                    </button>
-                                  )}
-                                </div>
-                              </td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
+                {/* Line Items - Desktop Table */}
+                <div className="hidden md:block overflow-x-auto">
+                  <table className="min-w-full mb-4">
+                    <thead>
+                      <tr className="bg-gray-800 text-white text-xs md:text-sm">
+                        <th className="text-left py-2 px-3">Item</th>
+                        <th className="text-center py-2 px-2 w-16">Tax</th>
+                        <th className="text-right py-2 px-3 w-20">Qty</th>
+                        <th className="text-right py-2 px-3 w-24">Rate</th>
+                        <th className="text-right py-2 px-3 w-28">Amount</th>
+                        <th className="w-16"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {invoiceData.lineItems.map((item, index) => (
+                        <tr key={item.id} className="border-b border-gray-200 hover:bg-gray-50 transition-colors">
+                          <td className="py-2 px-3 min-w-[190px]">
+                            <input
+                              type="text"
+                              placeholder="Description of item/service..."
+                              className="w-full focus:outline-none text-sm bg-transparent"
+                              value={item.description}
+                              data-item-field="description"
+                              onChange={(e) => handleLineItemChange(item.id, 'description', e.target.value)}
+                            />
+                          </td>
+                          <td className="py-2 px-2 text-center">
+                            <input
+                              type="checkbox"
+                              className="w-4 h-4 text-teal-600 border-gray-300 rounded focus:ring-teal-500 cursor-pointer"
+                              checked={item.taxable}
+                              onChange={(e) => handleLineItemChange(item.id, 'taxable', e.target.checked)}
+                              title="Taxable item"
+                            />
+                          </td>
+                          <td className="py-2 px-3">
+                            <input
+                              type="number"
+                              min="1"
+                              className="w-full text-right focus:outline-none text-sm bg-transparent"
+                              value={item.quantity}
+                              onChange={(e) => handleLineItemChange(item.id, 'quantity', Number(e.target.value))}
+                            />
+                          </td>
+                          <td className="py-2 px-3">
+                            <input
+                              type="number"
+                              min="0"
+                              step="0.01"
+                              className="w-full text-right focus:outline-none text-sm bg-transparent"
+                              value={item.rate}
+                              onChange={(e) => handleLineItemChange(item.id, 'rate', Number(e.target.value))}
+                              onKeyDown={(e) => handleLineItemTab(e, item.id, 'rate')}
+                            />
+                          </td>
+                          <td className="py-2 px-3 text-right text-sm font-medium">
+                            {formatCurrency(item.amount, invoiceData.currency)}
+                          </td>
+                          <td className="py-2 px-2">
+                            <div className="flex gap-1">
+                              <button
+                                onClick={() => duplicateLineItem(item.id)}
+                                className="text-gray-400 hover:text-teal-600 transition-colors"
+                                title="Duplicate"
+                              >
+                                <FiCopy className="w-4 h-4" />
+                              </button>
+                              {invoiceData.lineItems.length > 1 && (
+                                <button
+                                  onClick={() => removeLineItem(item.id)}
+                                  className="text-gray-400 hover:text-red-600 transition-colors"
+                                  title="Delete"
+                                >
+                                  <FiTrash2 className="w-4 h-4" />
+                                </button>
+                              )}
+                            </div>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+
+                {/* Line Items - Mobile Cards */}
+                <div className="md:hidden space-y-3 mb-4">
+                  {invoiceData.lineItems.map((item, index) => (
+                    <div key={item.id} className="border border-gray-200 rounded-lg p-3 bg-white shadow-sm hover:shadow-md transition-shadow">
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-xs font-semibold text-teal-600 bg-teal-50 px-2 py-0.5 rounded">Item {index + 1}</span>
+                        <div className="flex gap-2">
+                          <button
+                            onClick={() => duplicateLineItem(item.id)}
+                            className="text-gray-400 hover:text-teal-600 transition-colors p-1"
+                            title="Duplicate"
+                          >
+                            <FiCopy className="w-4 h-4" />
+                          </button>
+                          {invoiceData.lineItems.length > 1 && (
+                            <button
+                              onClick={() => removeLineItem(item.id)}
+                              className="text-gray-400 hover:text-red-600 transition-colors p-1"
+                              title="Delete"
+                            >
+                              <FiTrash2 className="w-4 h-4" />
+                            </button>
+                          )}
+                        </div>
+                      </div>
+                      <div className="space-y-2">
+                        <div>
+                          <label className="block text-xs text-gray-500 mb-1">Description</label>
+                          <input
+                            type="text"
+                            placeholder="Item or service description..."
+                            className="w-full border border-gray-200 rounded-md px-3 py-2 text-sm focus:border-teal-500 focus:ring-1 focus:ring-teal-200 focus:outline-none"
+                            value={item.description}
+                            data-item-field="description"
+                            onChange={(e) => handleLineItemChange(item.id, 'description', e.target.value)}
+                          />
+                        </div>
+                        <div className="grid grid-cols-3 gap-2">
+                          <div>
+                            <label className="block text-xs text-gray-500 mb-1">Qty</label>
+                            <input
+                              type="number"
+                              min="1"
+                              className="w-full border border-gray-200 rounded-md px-2 py-2 text-sm text-center focus:border-teal-500 focus:ring-1 focus:ring-teal-200 focus:outline-none"
+                              value={item.quantity}
+                              onChange={(e) => handleLineItemChange(item.id, 'quantity', Number(e.target.value))}
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-xs text-gray-500 mb-1">Rate</label>
+                            <input
+                              type="number"
+                              min="0"
+                              step="0.01"
+                              className="w-full border border-gray-200 rounded-md px-2 py-2 text-sm text-center focus:border-teal-500 focus:ring-1 focus:ring-teal-200 focus:outline-none"
+                              value={item.rate}
+                              onChange={(e) => handleLineItemChange(item.id, 'rate', Number(e.target.value))}
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-xs text-gray-500 mb-1">Amount</label>
+                            <div className="bg-gray-50 border border-gray-200 rounded-md px-2 py-2 text-sm text-center font-medium text-teal-700">
+                              {formatCurrency(item.amount, invoiceData.currency)}
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-2 pt-1">
+                          <input
+                            type="checkbox"
+                            className="w-4 h-4 text-teal-600 border-gray-300 rounded focus:ring-teal-500 cursor-pointer"
+                            checked={item.taxable}
+                            onChange={(e) => handleLineItemChange(item.id, 'taxable', e.target.checked)}
+                            id={`tax-${item.id}`}
+                          />
+                          <label htmlFor={`tax-${item.id}`} className="text-xs text-gray-600 cursor-pointer">Taxable</label>
+                        </div>
+                      </div>
                     </div>
-                  </div>
+                  ))}
                 </div>
 
                 <div className="flex flex-wrap items-center gap-3 mb-6 md:mb-8">
@@ -1434,7 +1596,7 @@ export default function Home() {
                             value={invoiceData.discountAmount || ''}
                             onChange={(e) => setInvoiceData(prev => ({ ...prev, discountAmount: Number(e.target.value) }))}
                           />
-                          <div className="w-16 sm:w-20">
+                          <div className="w-20">
                             <Select
                               instanceId="discount-type-select"
                               styles={{
@@ -1516,6 +1678,16 @@ export default function Home() {
                   </div>
                 </div>
 
+                {/* Amount in Words */}
+                {totals.balanceDue > 0 && (
+                  <div className="mt-3 bg-gray-50 border border-gray-200 rounded-md px-4 py-2.5">
+                    <p className="text-xs text-gray-500 mb-0.5">Amount in Words</p>
+                    <p className="text-sm font-medium text-gray-800 italic">
+                      {numberToWords(totals.balanceDue, invoiceData.currency)}
+                    </p>
+                  </div>
+                )}
+
                 {/* Pro Tips Section */}
                 {completionPercentage >= 70 && (
                   <div className="mt-6 bg-blue-50 border border-blue-200 rounded-lg p-4">
@@ -1526,7 +1698,11 @@ export default function Home() {
                         <ul className="text-xs text-black space-y-1.5">
                           <li className="flex items-start gap-2">
                             <span className="text-blue-600">•</span>
-                            <span>Include clear payment terms to avoid confusion</span>
+                            <span>Due date auto-calculates when you set payment terms</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-blue-600">•</span>
+                            <span>Press Tab in the last Rate field to auto-add a new line item</span>
                           </li>
                           <li className="flex items-start gap-2">
                             <span className="text-blue-600">•</span>

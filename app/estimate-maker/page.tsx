@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import EstimateForm from '../components/EstimateForm';
+import { RelatedTools } from '../components/RelatedTools';
 
 export const metadata: Metadata = {
     title: 'Free Estimate Maker – Create & Download PDF Estimates Online | Invoiceza',
@@ -321,6 +322,8 @@ export default function EstimateMakerPage() {
                     </div>
                 </div>
             </section>
+
+            <RelatedTools currentPage="/estimate-maker" />
         </>
     );
 }

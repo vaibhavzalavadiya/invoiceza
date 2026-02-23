@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import ReceiptForm from '../components/ReceiptForm';
+import { RelatedTools } from '../components/RelatedTools';
 
 export const metadata: Metadata = {
     title: 'Free Receipt Maker – Create & Download PDF Receipts Online | Invoiceza',
@@ -309,6 +310,8 @@ export default function ReceiptMakerPage() {
                     </div>
                 </div>
             </section>
+
+            <RelatedTools currentPage="/receipt-maker" />
         </>
     );
 }

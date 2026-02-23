@@ -420,20 +420,26 @@ export default function ReceiptForm() {
 
                                         {/* Business Details */}
                                         <div className="text-sm text-black space-y-3">
-                                            <input
-                                                type="text"
-                                                placeholder="Your Business Name"
-                                                className="font-semibold text-gray-900 w-full border border-gray-300 rounded-md focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 focus:outline-none px-3 py-2 transition-all"
-                                                value={invoiceData.business.name}
-                                                onChange={(e) => setInvoiceData(prev => ({ ...prev, business: { ...prev.business, name: e.target.value } }))}
-                                            />
-                                            <textarea
-                                                placeholder="Business Address & Contact Info"
-                                                rows={2}
-                                                className="w-full border border-gray-300 rounded-md focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 focus:outline-none px-3 py-2 resize-none transition-all"
-                                                value={invoiceData.business.address}
-                                                onChange={(e) => setInvoiceData(prev => ({ ...prev, business: { ...prev.business, address: e.target.value } }))}
-                                            />
+                                            <div>
+                                                <label className="block text-xs font-medium text-gray-500 mb-1">Business Name</label>
+                                                <input
+                                                    type="text"
+                                                    placeholder="e.g. Acme Inc."
+                                                    className="font-semibold text-gray-900 w-full border border-gray-300 rounded-md focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 focus:outline-none px-3 py-2 transition-all"
+                                                    value={invoiceData.business.name}
+                                                    onChange={(e) => setInvoiceData(prev => ({ ...prev, business: { ...prev.business, name: e.target.value } }))}
+                                                />
+                                            </div>
+                                            <div>
+                                                <label className="block text-xs font-medium text-gray-500 mb-1">Address</label>
+                                                <textarea
+                                                    placeholder="Street address, City, State, ZIP"
+                                                    rows={2}
+                                                    className="w-full border border-gray-300 rounded-md focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 focus:outline-none px-3 py-2 resize-none transition-all"
+                                                    value={invoiceData.business.address}
+                                                    onChange={(e) => setInvoiceData(prev => ({ ...prev, business: { ...prev.business, address: e.target.value } }))}
+                                                />
+                                            </div>
                                         </div>
                                     </div>
                                     <div className="text-left md:text-right text-black">
@@ -519,64 +525,83 @@ export default function ReceiptForm() {
                                     </div>
                                 </div>
 
-                                {/* Items Table */}
-                                <div className="overflow-x-auto -mx-3 sm:-mx-4 md:mx-0">
-                                    <div className="inline-block min-w-full align-middle">
-                                        <div className="overflow-hidden">
-                                            <table className="min-w-full mb-4">
-                                                <thead>
-                                                    <tr className="bg-gray-800 text-white text-xs md:text-sm">
-                                                        <th className="text-left py-2.5 md:py-3 px-2 md:px-4 font-semibold rounded-tl-lg w-6"></th>
-                                                        <th className="text-left py-2.5 md:py-3 px-2 md:px-4 font-semibold">Item Description</th>
-                                                        <th className="text-right py-2.5 md:py-3 px-2 md:px-4 font-semibold w-20 md:w-24">Qty</th>
-                                                        <th className="text-right py-2.5 md:py-3 px-2 md:px-4 font-semibold w-24 md:w-28">Price</th>
-                                                        <th className="text-right py-2.5 md:py-3 px-2 md:px-4 font-semibold rounded-tr-lg w-24 md:w-28">Total</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    {invoiceData.lineItems.map((item, index) => (
-                                                        <tr key={item.id} className={`group border-b border-gray-100 hover:bg-emerald-50/30 transition-colors ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'}`}>
-                                                            <td className="py-2 px-1 md:px-2">
-                                                                <button
-                                                                    onClick={() => setInvoiceData(prev => ({ ...prev, lineItems: prev.lineItems.filter(i => i.id !== item.id) }))}
-                                                                    className="opacity-0 group-hover:opacity-100 p-1 text-red-400 hover:text-red-500 transition-all"
-                                                                >
-                                                                    <FiTrash2 className="w-3.5 h-3.5" />
-                                                                </button>
-                                                            </td>
-                                                            <td className="py-2 px-2 md:px-4">
-                                                                <input
-                                                                    className="w-full bg-transparent text-sm focus:outline-none focus:bg-white focus:ring-1 focus:ring-emerald-200 rounded px-2 py-1"
-                                                                    placeholder="Item description"
-                                                                    value={item.description}
-                                                                    onChange={(e) => handleLineItemChange(item.id, 'description', e.target.value)}
-                                                                />
-                                                            </td>
-                                                            <td className="py-2 px-2 md:px-4">
-                                                                <input
-                                                                    type="number"
-                                                                    className="w-full bg-transparent text-sm text-right focus:outline-none focus:bg-white focus:ring-1 focus:ring-emerald-200 rounded px-2 py-1"
-                                                                    value={item.quantity}
-                                                                    onChange={(e) => handleLineItemChange(item.id, 'quantity', e.target.value)}
-                                                                />
-                                                            </td>
-                                                            <td className="py-2 px-2 md:px-4">
-                                                                <input
-                                                                    type="number"
-                                                                    className="w-full bg-transparent text-sm text-right focus:outline-none focus:bg-white focus:ring-1 focus:ring-emerald-200 rounded px-2 py-1"
-                                                                    value={item.rate}
-                                                                    onChange={(e) => handleLineItemChange(item.id, 'rate', e.target.value)}
-                                                                />
-                                                            </td>
-                                                            <td className="py-2 px-2 md:px-4 text-right text-sm font-semibold text-gray-900">
-                                                                {formatCurrency(item.amount, invoiceData.currency)}
-                                                            </td>
-                                                        </tr>
-                                                    ))}
-                                                </tbody>
-                                            </table>
+                                {/* Items - Desktop Table */}
+                                <div className="hidden md:block overflow-x-auto">
+                                    <table className="min-w-full mb-4">
+                                        <thead>
+                                            <tr className="bg-gray-800 text-white text-xs md:text-sm">
+                                                <th className="text-left py-2.5 md:py-3 px-4 font-semibold rounded-tl-lg w-6"></th>
+                                                <th className="text-left py-2.5 md:py-3 px-4 font-semibold">Item Description</th>
+                                                <th className="text-right py-2.5 md:py-3 px-4 font-semibold w-24">Qty</th>
+                                                <th className="text-right py-2.5 md:py-3 px-4 font-semibold w-28">Price</th>
+                                                <th className="text-right py-2.5 md:py-3 px-4 font-semibold rounded-tr-lg w-28">Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {invoiceData.lineItems.map((item, index) => (
+                                                <tr key={item.id} className={`group border-b border-gray-100 hover:bg-emerald-50/30 transition-colors ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'}`}>
+                                                    <td className="py-2 px-2">
+                                                        <button
+                                                            onClick={() => setInvoiceData(prev => ({ ...prev, lineItems: prev.lineItems.filter(i => i.id !== item.id) }))}
+                                                            className="opacity-0 group-hover:opacity-100 p-1 text-red-400 hover:text-red-500 transition-all"
+                                                        >
+                                                            <FiTrash2 className="w-3.5 h-3.5" />
+                                                        </button>
+                                                    </td>
+                                                    <td className="py-2 px-4">
+                                                        <input className="w-full bg-transparent text-sm focus:outline-none focus:bg-white focus:ring-1 focus:ring-emerald-200 rounded px-2 py-1" placeholder="Item description" value={item.description} onChange={(e) => handleLineItemChange(item.id, 'description', e.target.value)} />
+                                                    </td>
+                                                    <td className="py-2 px-4">
+                                                        <input type="number" className="w-full bg-transparent text-sm text-right focus:outline-none focus:bg-white focus:ring-1 focus:ring-emerald-200 rounded px-2 py-1" value={item.quantity} onChange={(e) => handleLineItemChange(item.id, 'quantity', e.target.value)} />
+                                                    </td>
+                                                    <td className="py-2 px-4">
+                                                        <input type="number" className="w-full bg-transparent text-sm text-right focus:outline-none focus:bg-white focus:ring-1 focus:ring-emerald-200 rounded px-2 py-1" value={item.rate} onChange={(e) => handleLineItemChange(item.id, 'rate', e.target.value)} />
+                                                    </td>
+                                                    <td className="py-2 px-4 text-right text-sm font-semibold text-gray-900">
+                                                        {formatCurrency(item.amount, invoiceData.currency)}
+                                                    </td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                {/* Items - Mobile Cards */}
+                                <div className="md:hidden space-y-3 mb-4">
+                                    {invoiceData.lineItems.map((item, index) => (
+                                        <div key={item.id} className="border border-gray-200 rounded-lg p-3 bg-white shadow-sm">
+                                            <div className="flex items-center justify-between mb-2">
+                                                <span className="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">Item {index + 1}</span>
+                                                {invoiceData.lineItems.length > 1 && (
+                                                    <button onClick={() => setInvoiceData(prev => ({ ...prev, lineItems: prev.lineItems.filter(i => i.id !== item.id) }))} className="text-gray-400 hover:text-red-500 p-1 transition-colors">
+                                                        <FiTrash2 className="w-4 h-4" />
+                                                    </button>
+                                                )}
+                                            </div>
+                                            <div className="space-y-2">
+                                                <div>
+                                                    <label className="block text-xs text-gray-500 mb-1">Description</label>
+                                                    <input className="w-full border border-gray-200 rounded-md px-3 py-2 text-sm focus:border-emerald-500 focus:ring-1 focus:ring-emerald-200 focus:outline-none" placeholder="Item description" value={item.description} onChange={(e) => handleLineItemChange(item.id, 'description', e.target.value)} />
+                                                </div>
+                                                <div className="grid grid-cols-3 gap-2">
+                                                    <div>
+                                                        <label className="block text-xs text-gray-500 mb-1">Qty</label>
+                                                        <input type="number" className="w-full border border-gray-200 rounded-md px-2 py-2 text-sm text-center focus:border-emerald-500 focus:ring-1 focus:ring-emerald-200 focus:outline-none" value={item.quantity} onChange={(e) => handleLineItemChange(item.id, 'quantity', e.target.value)} />
+                                                    </div>
+                                                    <div>
+                                                        <label className="block text-xs text-gray-500 mb-1">Price</label>
+                                                        <input type="number" className="w-full border border-gray-200 rounded-md px-2 py-2 text-sm text-center focus:border-emerald-500 focus:ring-1 focus:ring-emerald-200 focus:outline-none" value={item.rate} onChange={(e) => handleLineItemChange(item.id, 'rate', e.target.value)} />
+                                                    </div>
+                                                    <div>
+                                                        <label className="block text-xs text-gray-500 mb-1">Total</label>
+                                                        <div className="bg-gray-50 border border-gray-200 rounded-md px-2 py-2 text-sm text-center font-medium text-emerald-700">
+                                                            {formatCurrency(item.amount, invoiceData.currency)}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
+                                    ))}
                                 </div>
                                 <button
                                     onClick={() => setInvoiceData(prev => ({ ...prev, lineItems: [...prev.lineItems, { id: Date.now().toString(), description: '', quantity: 1, rate: 0, amount: 0, taxable: true }] }))}

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import QuotationForm from '../components/QuotationForm';
+import { RelatedTools } from '../components/RelatedTools';
 
 export const metadata: Metadata = {
     title: 'Free Quotation Maker – Create & Download PDF Quotations Online | Invoiceza',
@@ -321,6 +322,8 @@ export default function QuotationMakerPage() {
                     </div>
                 </div>
             </section>
+
+            <RelatedTools currentPage="/quotation-maker" />
         </>
     );
 }

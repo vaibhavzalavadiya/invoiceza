@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { FiDownload, FiShield, FiZap, FiCheck, FiFileText, FiClock, FiUsers } from 'react-icons/fi';
+import { RelatedTools } from '../../components/RelatedTools';
 
 export const metadata = {
   title: 'Invoice Generator No Login (Free & Instant) | Invoiceza',
@@ -294,28 +295,7 @@ export default function InvoiceGeneratorNoLogin() {
           </div>
         </article>
 
-        {/* Related Links */}
-        <section className='lg:mb-16 mb-10'>
-          <div className="container">
-            <div className="bg-gray-100 rounded-lg lg:p-6 p-4">
-              <h3 className="lg:text-xl text-base font-semibold text-gray-900 lg:mb-4 mb-2">Related Tools</h3>
-              <div className="grid sm:grid-cols-2 gap-3">
-                <Link href="/simple-invoice-generator" className="text-teal-600 hover:text-teal-700 font-medium">
-                  → Simple Invoice Generator
-                </Link>
-                <Link href="/invoice-generator-pdf" className="text-teal-600 hover:text-teal-700 font-medium">
-                  → Invoice Generator PDF
-                </Link>
-                <Link href="/freelance-invoice-generator" className="text-teal-600 hover:text-teal-700 font-medium">
-                  → Freelance Invoice Generator
-                </Link>
-                <Link href="/invoice-template-simple" className="text-teal-600 hover:text-teal-700 font-medium">
-                  → Simple Invoice Template
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
+        <RelatedTools currentPage="/invoice-generator-no-login" />
       </div>
     </>
   );

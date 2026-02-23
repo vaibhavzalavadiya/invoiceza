@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { FiDownload, FiFileText, FiCheck, FiCopy, FiEdit, FiPrinter } from 'react-icons/fi';
+import { RelatedTools } from '../../components/RelatedTools';
 
 export const metadata = {
   title: 'Simple Invoice Template (Free Download) | Invoiceza',
@@ -410,28 +411,7 @@ export default function InvoiceTemplateSimple() {
         </div>
       </article>
 
-      {/* Related Links */}
-      <section className='lg:mb-16 mb-10'>
-        <div className="container">
-          <div className="bg-gray-100 rounded-lg lg:p-6 p-4">
-            <h3 className="lg:text-xl text-base font-semibold text-gray-900 lg:mb-4 mb-2">More Invoice Tools</h3>
-            <div className="grid sm:grid-cols-2 gap-3">
-              <Link href="/invoice-generator-no-login" className="text-teal-600 hover:text-teal-700 font-medium">
-                → Invoice Generator No Login
-              </Link>
-              <Link href="/simple-invoice-generator" className="text-teal-600 hover:text-teal-700 font-medium">
-                → Simple Invoice Generator
-              </Link>
-              <Link href="/invoice-generator-pdf" className="text-teal-600 hover:text-teal-700 font-medium">
-                → Invoice Generator PDF
-              </Link>
-              <Link href="/freelance-invoice-generator" className="text-teal-600 hover:text-teal-700 font-medium">
-                → Freelance Invoice Generator
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <RelatedTools currentPage="/invoice-template-simple" />
       </div>
     </>
   );
