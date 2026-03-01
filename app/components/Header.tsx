@@ -53,7 +53,7 @@ export function Header() {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center lg:gap-6 gap-4 lg:text-base text-sm">
+            <nav className="hidden lg:flex items-center lg:gap-6 gap-4 lg:text-base text-sm">
               <Link href="/" className="text-black hover:text-teal-600 font-medium transition-colors">
                 Home
               </Link>
@@ -78,7 +78,7 @@ export function Header() {
             </nav>
 
             {/* Mobile Menu Button */}
-            <div className='md:hidden flex items-center gap-3'>
+            <div className='lg:hidden flex items-center gap-3'>
               <Link
                 href="/"
                 className="bg-teal-600 text-white text-sm px-3 py-2 rounded-lg hover:bg-teal-700 transition-all duration-200 hover:shadow-lg font-medium text-center"
@@ -109,12 +109,12 @@ export function Header() {
         <>
           {/* Backdrop */}
           <div
-            className={`fixed inset-0 bg-black/50 z-40 md:hidden transition-opacity duration-300 ${isAnimating ? 'opacity-100' : 'opacity-0'}`}
+            className={`fixed inset-0 bg-black/50 z-40 lg:hidden transition-opacity duration-300 ${isAnimating ? 'opacity-100' : 'opacity-0'}`}
             onClick={handleClose}
           />
 
           {/* Sidebar Menu */}
-          <nav className={`fixed top-0 right-0 h-full w-64 bg-white shadow-2xl z-50 md:hidden transition-transform duration-300 ease-out ${isAnimating ? 'translate-x-0' : 'translate-x-full'}`}>
+          <nav className={`fixed top-0 right-0 h-full w-64 bg-white shadow-2xl z-50 lg:hidden transition-transform duration-300 ease-out ${isAnimating ? 'translate-x-0' : 'translate-x-full'}`}>
             <div className="flex flex-col h-full">
               {/* Close Button */}
               <div className="flex items-center justify-between px-4 py-3.25 border-b border-gray-200">
@@ -175,7 +175,7 @@ export function Header() {
                 >
                   Estimate Maker
                 </Link>
-               
+
               </div>
             </div>
           </nav>
