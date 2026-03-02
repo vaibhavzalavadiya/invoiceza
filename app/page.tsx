@@ -939,7 +939,7 @@ export default function Home() {
                 <span className="hidden md:inline">More</span>
               </button>
               {showMoreMenu && (
-                <div className="absolute right-0 top-full mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-200 z-50 animate-scale-in transition-all duration-200">
+                <div className="absolute end-0 top-full mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-200 z-50 animate-scale-in transition-all duration-200">
                   <button
                     onClick={() => {
                       handleDuplicateInvoice();
