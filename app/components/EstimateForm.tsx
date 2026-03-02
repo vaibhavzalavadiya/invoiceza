@@ -685,7 +685,7 @@ export default function EstimateForm() {
 
                             {/* Convert to Quote CTA */}
                             <div className="bg-violet-600 text-white p-5 md:p-6 rounded-xl shadow-lg relative overflow-hidden">
-                                <div className="absolute top-0 right-0 p-4 opacity-10"><FiBox className="w-20 h-20" /></div>
+                                <div className="absolute top-0 end-0 p-4 opacity-10"><FiBox className="w-20 h-20" /></div>
                                 <h3 className="font-bold mb-2 flex items-center gap-2"><FiCheckCircle className="text-violet-200" /> Need a Fixed Quote?</h3>
                                 <p className="text-xs text-violet-100 leading-relaxed mb-3">Once you&apos;ve finalized the project scope, convert this estimate into a formal <strong>Quotation</strong> to lock in the price for your client.</p>
                                 <a href="/quotation-maker" className="inline-block bg-white text-violet-700 text-xs font-bold px-4 py-2 rounded-lg hover:bg-violet-50 transition-colors">Create Quotation →</a>
