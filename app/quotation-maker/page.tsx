@@ -75,7 +75,7 @@ export default function QuotationMakerPage() {
             <QuotationForm />
 
             {/* Why Use Our Quotation Maker */}
-            <section className="pb-10 lg:pb-16">
+            <section className="py-10 lg:py-16">
                 <div className="container">
                     <div className="text-center mb-5 lg:mb-10">
                         <h2 className="text-xl sm:text-4xl font-bold text-gray-900 mb-3 md:mb-4">

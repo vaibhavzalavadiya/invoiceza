@@ -72,7 +72,9 @@ export default function EstimateMakerPage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
             />
-            <EstimateForm />
+            <div id="estimate-form">
+                <EstimateForm />
+            </div>
 
             {/* Why Use Our Estimate Maker */}
             <section className="pb-10 lg:pb-16">
@@ -310,7 +312,7 @@ export default function EstimateMakerPage() {
                             Win client trust with clear, professional cost estimates. No registration, no credit card, no hidden fees.
                         </p>
                         <Link
-                            href="#"
+                            href="#estimate-form"
                             className="group bg-white text-violet-600 px-4 sm:px-10 py-2.5 sm:py-4 rounded-lg sm:rounded-xl font-bold text-sm sm:text-lg hover:bg-gray-50 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 inline-flex items-center gap-2 sm:gap-3"
                         >
                             Create Estimate Now

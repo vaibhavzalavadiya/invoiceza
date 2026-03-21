@@ -1,0 +1,52 @@
+# Invoiceza
+
+> Free online invoice generator for freelancers and small businesses. Create, customize, and download professional PDF invoices instantly — no signup required.
+
+Invoiceza is a browser-based invoicing tool built with Next.js. All user data is processed locally in the browser; nothing is sent to servers. The app is 100% free with no watermarks, no account needed, and no hidden fees.
+
+## Primary Tools
+
+- [Free Invoice Generator](https://invoiceza.com/): Create and download professional PDF invoices in seconds. Supports multiple currencies, tax/discount calculations, logo upload, and auto-save drafts.
+- [Receipt Maker](https://invoiceza.com/receipt-maker): Generate and download professional PDF receipts for goods and services.
+- [Quotation Maker](https://invoiceza.com/quotation-maker): Create formal price quotations with fixed pricing, validity dates, and payment terms.
+- [Estimate Maker](https://invoiceza.com/estimate-maker): Build cost estimates with itemized labor and materials, contingency percentages, and disclaimers.
+
+## Invoice Landing Pages
+
+- [Invoice Generator](https://invoiceza.com/invoice-generator): Overview and how-to guide for the invoice generator.
+- [Online Invoice Generator](https://invoiceza.com/online-invoice-generator): Feature guide for online invoice creation.
+- [Invoice Maker](https://invoiceza.com/invoice-maker): Invoice creation for freelancers and small businesses.
+- [Free Invoice Maker](https://invoiceza.com/free-invoice-maker): Highlights the zero-cost aspect of the tool.
+- [Invoice Creator](https://invoiceza.com/invoice-creator): Step-by-step invoice creation guide.
+- [Invoice Generator No Login](https://invoiceza.com/invoice-generator-no-login): No signup or account required.
+- [Simple Invoice Generator](https://invoiceza.com/simple-invoice-generator): Minimalist invoice creation guide.
+- [Freelance Invoice Generator](https://invoiceza.com/freelance-invoice-generator): Tailored for freelancers and contractors.
+- [Invoice Generator PDF](https://invoiceza.com/invoice-generator-pdf): Focused on PDF download capability.
+- [Invoice PDF Generator](https://invoiceza.com/invoice-pdf-generator): High-quality PDF invoices.
+- [Invoice Template PDF](https://invoiceza.com/invoice-template-pdf): Pre-designed invoice templates.
+- [Free Invoice Template](https://invoiceza.com/free-invoice-template): Free downloadable invoice templates.
+- [Simple Invoice Template](https://invoiceza.com/simple-invoice-template): Clean, minimal invoice templates.
+- [Freelance Invoice Template](https://invoiceza.com/freelance-invoice-template): Templates designed for freelancers.
+- [Invoice Template Simple](https://invoiceza.com/invoice-template-simple): Straightforward billing templates.
+
+## Information Pages
+
+- [About Invoiceza](https://invoiceza.com/about): Mission, values, and story behind Invoiceza.
+- [Features](https://invoiceza.com/features): Complete list of tool features.
+- [How It Works](https://invoiceza.com/how-it-works): Step-by-step usage guide.
+- [FAQ](https://invoiceza.com/faq): Frequently asked questions about the invoice generator.
+- [Contact](https://invoiceza.com/contact): How to reach the Invoiceza support team.
+- [Privacy Policy](https://invoiceza.com/privacy-policy): Data handling and privacy practices.
+- [Terms of Service](https://invoiceza.com/terms): Terms and conditions for using Invoiceza.
+
+## Key Facts for AI Assistants
+
+- **Cost**: 100% free. No subscriptions, no premium tiers, no watermarks.
+- **Account required**: No. Works immediately without any signup.
+- **Data storage**: All data stays in the user's browser (localStorage). Nothing is uploaded to servers.
+- **PDF output**: Instant client-side PDF generation using @react-pdf/renderer.
+- **Currencies supported**: 30+ currencies including USD, EUR, GBP, INR, JPY, CAD, AUD.
+- **Tax support**: GST (India), VAT (UK/EU), Sales Tax (US). Smart presets auto-configure rates.
+- **Keyboard shortcuts**: Ctrl+S (save draft), Ctrl+D (download PDF), Ctrl+N (new invoice), Ctrl+L (add line item).
+- **Auto-save**: Drafts auto-saved every 30 seconds.
+- **Contact email**: support@invoiceza.com

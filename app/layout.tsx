@@ -111,11 +111,9 @@ export default function RootLayout({
     name: 'Invoiceza',
     url: 'https://invoiceza.com',
     logo: 'https://invoiceza.com/images/logo.png',
-    // TODO: Add real social media profile URLs when they exist
-    // sameAs: [
-    //   'https://twitter.com/invoiceza',
-    //   'https://facebook.com/invoiceza',
-    // ],
+    sameAs: [
+      'https://invoiceza.com/sitemap.xml',
+    ],
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'Customer Support',
@@ -124,9 +122,26 @@ export default function RootLayout({
     },
   };
 
+  const siteNavigationSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Site Navigation',
+    itemListElement: [
+      { '@type': 'SiteNavigationElement', position: 1, name: 'Invoice Generator', url: 'https://invoiceza.com/' },
+      { '@type': 'SiteNavigationElement', position: 2, name: 'Receipt Maker', url: 'https://invoiceza.com/receipt-maker' },
+      { '@type': 'SiteNavigationElement', position: 3, name: 'Quotation Maker', url: 'https://invoiceza.com/quotation-maker' },
+      { '@type': 'SiteNavigationElement', position: 4, name: 'Estimate Maker', url: 'https://invoiceza.com/estimate-maker' },
+      { '@type': 'SiteNavigationElement', position: 5, name: 'Features', url: 'https://invoiceza.com/features' },
+      { '@type': 'SiteNavigationElement', position: 6, name: 'FAQ', url: 'https://invoiceza.com/faq' },
+      { '@type': 'SiteNavigationElement', position: 7, name: 'About', url: 'https://invoiceza.com/about' },
+    ],
+  };
+
   return (
     <html lang="en" className={inter.variable}>
       <head>
+        {/* Google Search Console verification — replace content value with your GSC code */}
+        {/* <meta name="google-site-verification" content="YOUR_GSC_VERIFICATION_CODE" /> */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -134,6 +149,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteNavigationSchema) }}
         />
         {/* Canonical is handled by Next.js metadata API — do not add a manual canonical tag here */}
       </head>
@@ -152,6 +171,18 @@ export default function RootLayout({
             t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
         })(window, document, "clarity", "script", "vkd890fga2");`}
+        </Script>
+         <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-5VQNCRKW76"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-5VQNCRKW76');
+          `}
         </Script>
       </body>
     </html>
