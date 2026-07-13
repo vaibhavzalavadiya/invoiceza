@@ -16,6 +16,30 @@ const nextConfig: NextConfig = {
   // Compression
   compress: true,
 
+  // SEO: 301 redirects — consolidate duplicate invoice synonym pages into /invoice-generator
+  async redirects() {
+    return [
+      '/online-invoice-generator',
+      '/invoice-maker',
+      '/free-invoice-maker',
+      '/invoice-creator',
+      '/invoice-generator-no-login',
+      '/simple-invoice-generator',
+      '/freelance-invoice-generator',
+      '/invoice-generator-pdf',
+      '/invoice-pdf-generator',
+      '/invoice-template-pdf',
+      '/free-invoice-template',
+      '/simple-invoice-template',
+      '/freelance-invoice-template',
+      '/invoice-template-simple',
+    ].map(source => ({
+      source,
+      destination: '/invoice-generator',
+      permanent: true,
+    }));
+  },
+
   // Security headers
   async headers() {
     return [

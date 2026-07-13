@@ -1,11 +1,11 @@
 import Link from 'next/link';
-import { FiZap, FiCheck, FiFileText, FiDownload, FiUsers, FiClock } from 'react-icons/fi';
+import { FiZap, FiCheck, FiFileText, FiDownload, FiUsers, FiClock, FiShield, FiLayout } from 'react-icons/fi';
 import { RelatedTools } from '../../components/RelatedTools';
 
 export const metadata = {
-  title: 'Invoice Generator – Create Professional Invoices Online | Invoiceza',
-  description: 'Free online invoice generator to create and download professional invoices in seconds. No signup required. Perfect for freelancers and businesses.',
-  keywords: 'invoice generator, free online invoice generator, create invoice online, invoice generator pdf',
+  title: 'Free Invoice Generator – Create & Download Professional Invoices Online | Invoiceza',
+  description: 'Free online invoice generator — no signup needed. Create simple, professional invoices in seconds and download as PDF. Perfect template for freelancers and small businesses.',
+  keywords: 'invoice generator, free invoice maker, online invoice generator, invoice creator, invoice template, invoice pdf generator, simple invoice generator, freelance invoice',
   alternates: { canonical: 'https://invoiceza.com/invoice-generator' },
 };
 
@@ -14,8 +14,8 @@ export default function InvoiceGenerator() {
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Invoice Generator – Create Professional Invoices Online",
-    "description": "Free online invoice generator to create and download professional invoices in seconds. No signup required. Perfect for freelancers and businesses.",
+    "name": "Free Invoice Generator – Create & Download Professional Invoices Online",
+    "description": "Free online invoice generator — no signup needed. Create simple, professional invoices in seconds and download as PDF. Perfect template for freelancers and small businesses.",
     "url": "https://invoiceza.com/invoice-generator",
     "isPartOf": {
       "@type": "WebApplication",
@@ -29,11 +29,71 @@ export default function InvoiceGenerator() {
     }
   };
 
+  // FAQPage Schema for rich results
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is this invoice generator really free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Invoiceza is a 100% free invoice generator with no hidden costs, no premium tiers, and no usage limits. You can create unlimited invoices, download them as PDF, and use every feature without paying anything — ever. There are no watermarks, no trial periods, and no credit card required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to sign up or create an account?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No signup or registration is required. You can start creating invoices immediately without providing any personal information, email address, or creating a password. Your privacy is fully protected, and you won't receive any marketing emails."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I download invoices as PDF?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely! Every invoice you create can be instantly downloaded as a professional PDF file. The PDF is print-ready, compatible with all devices, and maintains perfect formatting. Files are optimized for small size, making them ideal for email attachments."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is it suitable for freelancers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Invoiceza is perfect for freelancers, consultants, contractors, and self-employed professionals. It includes hourly rate calculations, project-based billing, multiple currency support, and professional templates. You can also save client information for repeat invoicing."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What invoice templates are available?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Invoiceza offers multiple professional invoice templates including Classic, Modern, and Minimal styles. All templates are customizable — you can add your logo, choose colors, and tailor the layout to match your brand identity. Every template produces clean, print-ready PDF output."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use it as a simple invoice maker?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! Invoiceza is designed to be the simplest and fastest way to create invoices online. The intuitive interface lets you generate a professional invoice in under 60 seconds — just fill in your details, add line items, and download. No learning curve, no complicated setup."
+        }
+      }
+    ]
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       <div className="bg-gray-50">
@@ -42,17 +102,17 @@ export default function InvoiceGenerator() {
           <div className="container">
             <div className="text-center">
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-                Invoice Generator – Create Professional Invoices Online
+                Free Invoice Generator — Create, Download &amp; Print Professional Invoices Online
               </h1>
               <p className="text-sm sm:text-lg lg:text-xl text-gray-700 mb-6 lg:mb-8 max-w-3xl mx-auto">
-                Free online invoice generator to create and download professional invoices in seconds. No signup required. Perfect for freelancers and businesses.
+                The simplest and fastest free online invoice maker — no signup needed. Create professional invoices in seconds, download as PDF, and get paid faster. Ideal for freelancers, contractors, and small businesses.
               </p>
               <Link
                 href="/"
                 className="inline-flex items-center gap-2 bg-teal-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:bg-teal-700 transition-colors font-semibold text-sm lg:text-lg shadow-lg"
               >
                 <FiZap className="w-5 h-5" />
-                Start Generating Invoices
+                Start Generating Invoices — It&apos;s Free
               </Link>
             </div>
           </div>
@@ -61,39 +121,42 @@ export default function InvoiceGenerator() {
         {/* Main Content */}
         <article className="pb-10 lg:pb-16">
           <div className="container">
+
+            {/* Section 1: Free Online Invoice Generator */}
             <section className="bg-white rounded-lg border border-gray-200 p-4 md:p-8 mb-6 lg:mb-8">
               <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-4 flex items-center gap-3">
                 <FiFileText className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 flex-shrink-0 text-teal-600" />
                 Free Online Invoice Generator
               </h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Our free online invoice generator is the fastest way to create professional invoices for your business. Whether you're a freelancer, small business owner, or contractor, you can generate unlimited invoices without any cost or signup requirements. The tool works entirely in your browser, making it accessible from any device with an internet connection.
+                Our free online invoice generator is the fastest way to create professional invoices for your business. Whether you&apos;re a freelancer, small business owner, or contractor, you can generate unlimited invoices without any cost or signup requirements. The tool works entirely in your browser, making it accessible from any device with an internet connection.
               </p>
               <p className="text-gray-700 leading-relaxed mb-4">
-                The invoice generator includes everything you need for professional invoicing: customizable templates, automatic calculations, tax management, and instant PDF downloads. Create invoices that look polished and credible, helping you get paid faster and maintain a professional image with every client interaction.
+                Use it as your go-to invoice maker, invoice creator, or invoice template — Invoiceza adapts to whatever you need. Choose from professional templates, customize with your branding, add line items with automatic calculations, and download a polished PDF in under 60 seconds.
               </p>
               <p className="text-gray-700 leading-relaxed">
-                What makes our free online invoice generator stand out is the combination of simplicity and power. The interface is intuitive enough for first-time users, yet includes advanced features that experienced professionals need. No learning curve, no complicated setup, just straightforward invoice creation.
+                What sets this free invoice generator apart is the combination of simplicity and power. The interface is intuitive enough for first-time users yet includes advanced features that experienced professionals need — tax management, multi-currency support, discount options, and payment term presets. No learning curve, no complicated setup, just straightforward invoice creation.
               </p>
             </section>
 
+            {/* Section 2: Simple and Fast */}
             <section className="bg-gradient-to-br from-teal-50 to-blue-50 rounded-lg border border-teal-200 p-4 md:p-8 mb-6 lg:mb-8">
               <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-4 flex items-center gap-3">
                 <FiClock className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 flex-shrink-0 text-teal-600" />
-                Create & Download Invoices in Seconds
+                Simple and Fast Invoice Creation
               </h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Time is money, and our invoice generator is built for speed. From opening the tool to downloading your finished invoice takes less than 60 seconds. The streamlined interface eliminates unnecessary steps, letting you focus on entering your invoice details while the generator handles formatting, calculations, and PDF creation automatically.
+                Time is money, and our simple invoice generator is built for speed. From opening the tool to downloading your finished invoice takes less than 60 seconds. The streamlined interface eliminates unnecessary steps, letting you focus on entering your invoice details while the generator handles formatting, calculations, and PDF creation automatically.
               </p>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Create and download invoices in seconds with features designed for efficiency. Smart defaults pre-fill common fields, calculations happen in real-time as you type, and PDF generation is nearly instantaneous. You spend your time on what matters - your business - not on figuring out invoicing software.
+                Smart defaults pre-fill common fields, calculations happen in real-time as you type, and PDF generation is nearly instantaneous. You spend your time on what matters — your business — not on figuring out invoicing software. This is why thousands of professionals choose Invoiceza as their simple invoice maker.
               </p>
               <div className="bg-white rounded-lg p-6 my-6">
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">Speed Features</h3>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
                     <FiCheck className="w-5 h-5 text-teal-600 flex-shrink-0 mt-1" />
-                    <span className="text-gray-700">Instant access - no registration or login required</span>
+                    <span className="text-gray-700">Instant access — no registration or login required</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <FiCheck className="w-5 h-5 text-teal-600 flex-shrink-0 mt-1" />
@@ -115,19 +178,20 @@ export default function InvoiceGenerator() {
               </div>
             </section>
 
+            {/* Section 3: PDF Download */}
             <section className="bg-white rounded-lg border border-gray-200 p-4 md:p-8 mb-6 lg:mb-8">
               <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-4 flex items-center gap-3">
                 <FiDownload className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 flex-shrink-0 text-teal-600" />
-                Invoice Generator with PDF & Print
+                Invoice Generator with Instant PDF Download
               </h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Every invoice generated by our tool is available as a high-quality PDF, perfect for both digital delivery and printing. The invoice generator with PDF and print capabilities ensures your invoices look professional regardless of how your clients prefer to receive them.
+                Every invoice created with Invoiceza is available as a high-quality PDF, perfect for both digital delivery and printing. Our invoice PDF generator ensures your documents look professional regardless of how your clients prefer to receive them — via email, messaging apps, or printed copies.
               </p>
               <p className="text-gray-700 leading-relaxed mb-4">
-                The PDF format maintains perfect formatting across all devices and platforms. Whether your client opens the invoice on a phone, tablet, or desktop computer, it will look exactly as you designed it. The files are optimized for small size without sacrificing quality, making them ideal for email attachments.
+                The PDF format maintains perfect formatting across all devices and platforms. Whether your client opens the invoice on a phone, tablet, or desktop computer, it will look exactly as you designed it. Files are optimized for small size without sacrificing quality, making them ideal for email attachments.
               </p>
               <div className="bg-gray-50 rounded-lg p-6 my-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">PDF & Print Features</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">PDF &amp; Print Features</h3>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-2">Professional PDF Output</h4>
@@ -149,16 +213,17 @@ export default function InvoiceGenerator() {
               </div>
             </section>
 
+            {/* Section 4: No Signup */}
             <section className="bg-white rounded-lg border border-gray-200 p-4 md:p-8 mb-6 lg:mb-8">
               <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-4 flex items-center gap-3">
-                <FiZap className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 flex-shrink-0 text-teal-600" />
-                No Signup Required Invoice Generator
+                <FiShield className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 flex-shrink-0 text-teal-600" />
+                No Signup Required — Start Instantly
               </h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Start creating invoices immediately with our no signup required invoice generator. Unlike traditional invoicing software that forces you through lengthy registration processes, our tool is ready to use the moment you open it. No email verification, no password creation, no terms and conditions to read through.
+                Start creating invoices immediately with our no-signup invoice generator. Unlike traditional invoicing software that forces you through lengthy registration processes, our tool is ready to use the moment you open it. No email verification, no password creation, no terms to read through — just instant access to professional invoicing.
               </p>
               <p className="text-gray-700 leading-relaxed mb-4">
-                The no signup approach means complete privacy and control over your data. Your invoice information stays in your browser and is never uploaded to our servers. This makes our generator perfect for professionals who value privacy and want to maintain control over their business data.
+                The no-login approach means complete privacy and control over your data. Your invoice information stays in your browser and is never uploaded to our servers. This makes our generator perfect for professionals who value privacy and want to maintain control over their business data.
               </p>
               <div className="bg-gradient-to-br from-blue-50 to-teal-50 rounded-lg p-6 my-6">
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">Benefits of No Signup</h3>
@@ -173,7 +238,7 @@ export default function InvoiceGenerator() {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-teal-600 font-bold">•</span>
-                    <span className="text-gray-700">Complete privacy - no data collection</span>
+                    <span className="text-gray-700">Complete privacy — no data collection or tracking</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-teal-600 font-bold">•</span>
@@ -187,16 +252,17 @@ export default function InvoiceGenerator() {
               </div>
             </section>
 
+            {/* Section 5: Freelancers & Businesses */}
             <section className="bg-gradient-to-br from-teal-50 to-blue-50 rounded-lg border border-teal-200 p-4 md:p-8 mb-6 lg:mb-8">
               <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-4 flex items-center gap-3">
                 <FiUsers className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 flex-shrink-0 text-teal-600" />
-                Invoice Generator for Freelancers & Businesses
+                Invoice Generator for Freelancers &amp; Small Businesses
               </h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Our invoice generator for freelancers and businesses adapts to your specific needs. Whether you're a solo freelancer billing by the hour or a small business managing multiple clients, the generator provides the flexibility and features you need.
+                Our invoice generator adapts to your specific needs. Whether you&apos;re a solo freelancer billing by the hour or a small business managing multiple clients, Invoiceza provides the flexibility and professional templates you need to get paid on time.
               </p>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Freelancers appreciate the speed and simplicity - create invoices between projects without complicated software. Businesses value the professional appearance and consistent formatting that builds credibility with clients. The generator scales with your needs, from occasional invoicing to high-volume billing.
+                Freelancers love the speed and simplicity — create invoices between projects without complicated software or monthly subscriptions. Businesses value the consistent professional formatting that builds credibility with clients. The generator scales with your needs, from occasional freelance invoicing to high-volume billing.
               </p>
               <div className="bg-white rounded-lg p-6 my-6">
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">Perfect For</h3>
@@ -239,6 +305,21 @@ export default function InvoiceGenerator() {
               </div>
             </section>
 
+            {/* Section 6: Professional Invoice Templates */}
+            <section className="bg-white rounded-lg border border-gray-200 p-4 md:p-8 mb-6 lg:mb-8">
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+                <FiLayout className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 flex-shrink-0 text-teal-600" />
+                Free Professional Invoice Templates
+              </h2>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Every invoice you create starts from a professionally designed template — no design skills required. Our free invoice templates include Classic, Modern, and Minimal styles, each optimized for readability and a polished look. Customize colors, add your logo, and tailor the layout to match your brand identity.
+              </p>
+              <p className="text-gray-700 leading-relaxed">
+                Whether you need a simple invoice template for quick one-off billing or a detailed template with tax breakdowns and payment terms, Invoiceza has you covered. All templates produce clean, print-ready PDF output that maintains formatting across every device your client uses.
+              </p>
+            </section>
+
+            {/* Section 7: Key Features */}
             <section className="bg-white rounded-lg border border-gray-200 p-4 md:p-8 mb-6 lg:mb-8">
               <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-4">Key Features of Our Invoice Generator</h2>
               <p className="text-gray-700 leading-relaxed mb-6">
@@ -293,7 +374,7 @@ export default function InvoiceGenerator() {
                   <div className="flex gap-3">
                     <FiCheck className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-1">Notes & Terms</h4>
+                      <h4 className="font-semibold text-gray-900 mb-1">Notes &amp; Terms</h4>
                       <p className="text-gray-700 text-sm">Add custom notes, terms and conditions, or payment instructions</p>
                     </div>
                   </div>
@@ -301,17 +382,18 @@ export default function InvoiceGenerator() {
                     <FiCheck className="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" />
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-1">Mobile Responsive</h4>
-                      <p className="text-gray-700 text-sm">Create invoices on any device - desktop, tablet, or smartphone</p>
+                      <p className="text-gray-700 text-sm">Create invoices on any device — desktop, tablet, or smartphone</p>
                     </div>
                   </div>
                 </div>
               </div>
             </section>
 
+            {/* Section 8: How to Use */}
             <section className="bg-white rounded-lg border border-gray-200 p-4 md:p-8 mb-6 lg:mb-8">
               <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-4">How to Use the Invoice Generator</h2>
               <p className="text-gray-700 leading-relaxed mb-6">
-                Creating professional invoices is simple with our generator:
+                Creating professional invoices is simple and fast with our generator:
               </p>
               <div className="space-y-6">
                 <div className="flex gap-4">
@@ -325,7 +407,7 @@ export default function InvoiceGenerator() {
                   <div className="flex-shrink-0 w-12 h-12 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold text-xl">2</div>
                   <div>
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">Enter Client Details</h3>
-                    <p className="text-gray-700">Add your client's name and billing address. This information can be saved for future invoices to the same client.</p>
+                    <p className="text-gray-700">Add your client&apos;s name and billing address. This information can be saved for future invoices to the same client.</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
@@ -345,17 +427,61 @@ export default function InvoiceGenerator() {
                 <div className="flex gap-4">
                   <div className="flex-shrink-0 w-12 h-12 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold text-xl">5</div>
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Download Your Invoice</h3>
-                    <p className="text-gray-700">Preview your invoice, then download the PDF. Your professional invoice is ready to send to your client.</p>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Download Your Invoice as PDF</h3>
+                    <p className="text-gray-700">Preview your invoice, then download the PDF instantly. Your professional invoice is ready to send to your client — no watermarks, no limits.</p>
                   </div>
                 </div>
               </div>
             </section>
 
+            {/* Section 9: FAQ */}
+            <section className="bg-white rounded-lg border border-gray-200 p-4 md:p-8 mb-6 lg:mb-8">
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Is this invoice generator really free?</h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    Yes, Invoiceza is a 100% free invoice generator with no hidden costs, no premium tiers, and no usage limits. You can create unlimited invoices, download them as PDF, and use every feature without paying anything — ever. There are no watermarks, no trial periods, and no credit card required.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Do I need to sign up or create an account?</h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    No signup or registration is required. You can start creating invoices immediately without providing any personal information, email address, or creating a password. Your privacy is fully protected, and you won&apos;t receive any marketing emails.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Can I download invoices as PDF?</h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    Absolutely! Every invoice you create can be instantly downloaded as a professional PDF file. The PDF is print-ready, compatible with all devices, and maintains perfect formatting. Files are optimized for small size, making them ideal for email attachments.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Is it suitable for freelancers?</h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    Yes, Invoiceza is perfect for freelancers, consultants, contractors, and self-employed professionals. It includes hourly rate calculations, project-based billing, multiple currency support, and professional templates. You can also save client information for repeat invoicing.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">What invoice templates are available?</h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    Invoiceza offers multiple professional invoice templates including Classic, Modern, and Minimal styles. All templates are customizable — you can add your logo, choose colors, and tailor the layout to match your brand identity. Every template produces clean, print-ready PDF output.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Can I use it as a simple invoice maker?</h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    Yes! Invoiceza is designed to be the simplest and fastest way to create invoices online. The intuitive interface lets you generate a professional invoice in under 60 seconds — just fill in your details, add line items, and download. No learning curve, no complicated setup.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            {/* CTA Section */}
             <section className="bg-teal-600 text-white rounded-lg lg:p-8 p-4 text-center">
-              <h2 className="md:text-3xl text-lg font-bold lg:mb-4 mb-2">Start Generating Professional Invoices</h2>
+              <h2 className="md:text-3xl text-lg font-bold lg:mb-4 mb-2">Start Generating Professional Invoices — Free Forever</h2>
               <p className="md:text-lg text-sm lg:mb-6 mb-5 text-teal-50">
-                Create unlimited professional invoices for free. No signup, no hidden costs, just fast and easy invoice generation. Join thousands of businesses using our invoice generator.
+                Create unlimited professional invoices for free. No signup, no hidden costs — just a simple, fast online invoice maker. Join thousands of freelancers and businesses using Invoiceza.
               </p>
               <Link
                 href="/"
